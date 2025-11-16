@@ -11,6 +11,7 @@ import Recruit from './pages/Recruit/Recruit';
 import Creators from './pages/Creators/Creators';
 import { path } from 'framer-motion/client';
 import Articles from './pages/Article/Articles';
+import ArticleEdit from './pages/Article/ArticleEdit';
 import TeamMatching from './pages/TeamMatching/TeamMatching';
 import ProjectForm from './pages/Project/ProjectForm';
 
@@ -31,6 +32,7 @@ const Router = () => {
     { path: '/projects', element: <Projects />, hasHeader: true },
     { path: '/projects/form', element: <ProjectForm /> },
     { path: '/articles', element: <Articles />, hasHeader: true },
+    { path: '/article/:id/edit', element: <ArticleEdit />, hasHeader: true },
   ];
 
   const routes = [
