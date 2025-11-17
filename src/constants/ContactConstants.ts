@@ -1,4 +1,3 @@
-import Mail from '../assets/imgs/Mail.svg';
 import Instagram from '../assets/imgs/Instagram.svg';
 import KakaoTalk from '../assets/imgs/KakaoTalk.svg';
 
@@ -10,12 +9,6 @@ export interface Contact {
 }
 
 export const CONTACTS: Contact[] = [
-  {
-    type: 'email',
-    label: '이메일 문의',
-    icon: Mail,
-    link: 'https://www.konkuk-kuit.com/5/introduce', // TODO: email 링크 추후 변경
-  },
   {
     type: 'instagram',
     label: '인스타그램 문의',
