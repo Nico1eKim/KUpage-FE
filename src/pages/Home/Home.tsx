@@ -55,15 +55,14 @@ const Home = () => {
               <KuitAnimation />
             </h1>
             <p className="text-white text-32 font-500">건국대학교 기획/개발 동아리 KUIT</p>
-            <GreenButton text="KUIT 6기 지원하러 가기 ->" isBig />
+            <GreenButton text="KUIT 7기 지원하러 가기 ->" isBig />
           </div>
         </div>
 
         <div>
           <div className="flex-center gap-84">
-            <InProgressBox title="진행된 프로젝트" count={18} />
-            <InProgressBox title="진행된 스터디" count={29} />
-            <InProgressBox title="거쳐간 사람들" count={298} counters="명" />
+            <InProgressBox title="진행된 프로젝트" count={42} />
+            <InProgressBox title="진행된 스터디" count={63} />
           </div>
 
           <p className="text-white text-24 font-500 leading-[4rem] mt-72">
@@ -75,10 +74,10 @@ const Home = () => {
             <br />
           </p>
 
-          <p className="text-main text-32 font-700 leading-[5rem] mt-72">
+          {/* <p className="text-main text-32 font-700 leading-[5rem] mt-72">
             KUIT 6기 모집이 시작됩니다.
             <br />한 학기 동안 함께 성장할 여러분의 지원을 기다리고 있습니다!
-          </p>
+          </p> */}
         </div>
 
         <div className="flex-center flex-col">
