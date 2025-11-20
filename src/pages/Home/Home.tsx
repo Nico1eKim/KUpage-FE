@@ -12,29 +12,29 @@ import StaffContent from '../../components/home/StaffContent';
 // TODO: 추후 서버 데이터 반영하면 지우기
 const projectList = [
   {
-    title: 'Chat Diary',
-    description: '가장 쉬운 일기 습관',
-    img: BigKUITLogo,
+    title: '메디케어콜',
+    description: '메디가 대신 챙기는 부모님 건강',
+    img: '/projects/medicarecall.png',
   },
   {
-    title: '방울이',
-    description: '내가 키우는 뽀모도로',
-    img: BigKUITLogo,
+    title: '찾아유',
+    description: '유기동물 종합 어플리케이션',
+    img: '/projects/findyou.png',
   },
   {
-    title: 'Beering',
-    description: '나만의 맥주 취향 아카이빙 서비스',
-    img: BigKUITLogo,
+    title: '스페이스',
+    description: '단 하나의 동아리 커뮤니티',
+    img: '/projects/space.png',
   },
   {
-    title: 'Coupone',
-    description: '쿠폰을 내 손 안에',
-    img: BigKUITLogo,
+    title: 'MajorFolio',
+    description: '우리끼리 만드는 과제장터',
+    img: '/projects/majorfolio.png',
   },
   {
-    title: '집콕',
-    description: "현명하게 내 자취방을 '콕' 하다",
-    img: BigKUITLogo,
+    title: 'CoNet',
+    description: '맞춰가는 시간, 만들어가는 추억',
+    img: '/projects/conet.png',
   },
 ];
 
