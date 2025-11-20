@@ -18,7 +18,7 @@ const SNSInquiryBtn = () => {
   };
 
   return (
-    <div className="fixed bottom-64 right-40 flex flex-col items-end gap-24">
+    <div className="fixed bottom-132 right-40 flex flex-col items-end gap-24">
       {open && (
         <div className="flex flex-col items-end gap-24">
           {CONTACTS.map(({ type, label, icon, link }) => (
