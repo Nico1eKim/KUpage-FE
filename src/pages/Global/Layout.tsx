@@ -16,13 +16,22 @@ interface RoutesChildren {
 const Layout = ({ routes_children }: RoutesChildren) => {
   const { pathname } = useLocation();
 
+  const currentRoute = routes_children.find((child) => matchPath(child.path, pathname));
+  const hasHeader = currentRoute?.hasHeader;
+
+  const mainContentPaddingClass = hasHeader ? 'pt-[141px]' : '';
+
   return (
     <div id="layout" className="h-screen w-full md:overflow-x-hidden md:h-screen md:w-screen">
-      {routes_children.find((child) => matchPath(child.path, pathname))?.hasHeader && <Header />}
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
-      {routes_children.find((child) => matchPath(child.path, pathname))?.hasFooter && <Footer />}
+      {hasHeader && <Header />}
+
+      <div className={mainContentPaddingClass}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </div>
+
+      {currentRoute?.hasFooter && <Footer />}
     </div>
   );
 };
