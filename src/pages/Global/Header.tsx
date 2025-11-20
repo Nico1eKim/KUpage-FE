@@ -80,7 +80,7 @@ const LoginButton = () => {
       ) : (
         <Link
           to="/login"
-          className="px-24 py-8 rounded-full bg-gray border border-border text-white font-bold text-20"
+          className="px-40 py-12 rounded-full bg-gray border-2 border-border text-white font-700 text-20"
         >
           로그인
         </Link>
