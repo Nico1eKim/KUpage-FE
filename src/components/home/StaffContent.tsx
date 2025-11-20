@@ -7,10 +7,10 @@ import TextChip from '../commons/TextChip';
 import StaffCardRow from './StaffCardRow';
 
 interface StaffContentProps {
-  generation?: 5 | 4;
+  generation?: 6 | 5 | 4;
 }
 
-const StaffContent = ({ generation = 5 }: StaffContentProps) => {
+const StaffContent = ({ generation = 6 }: StaffContentProps) => {
   const [selectedPosition, setSelectedPosition] = useState<string>('운영팀');
   const positions = Object.values(ROLE);
 
