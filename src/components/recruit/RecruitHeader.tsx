@@ -16,13 +16,13 @@ const RecruitHeader = () => {
           {isRecruiting ? (
             <>
               <h1 className="text-80 font-700 text-main mb-4 mt-68">
-                KUIT 6기 모집이 시작되었어요!
+                KUIT 7기 모집이 시작되었어요!
               </h1>
               <p className="text-40 font-700 mb-48">
                 한 학기 동안 함께 성장할 여러분의 지원을 기다리고 있습니다!
               </p>
               <GreenButton
-                text="KUIT 6기 지원하러 가기 ->"
+                text="KUIT 7기 지원하러 가기 ->"
                 isBig={true}
                 onClick={() => {
                   // todo: 지원 링크로 수정
@@ -34,11 +34,11 @@ const RecruitHeader = () => {
               <h1 className="text-88 font-700 mt-56">지금은 모집기간이 아닙니다</h1>
               {/* todo: 모집 예정 기간 수정 */}
               <p className="text-24 font-500 mt-32 mb-32">
-                5기 모집이 완료되었습니다! <br />
-                다음 기수는 2025년 9월에 예정되어 있습니다.
+                6기 모집이 완료되었습니다! <br />
+                다음 기수는 2026년 3월에 예정되어 있습니다.
               </p>
               <GreenButton
-                text="KUIT 6기 모집 사전 알림 등록하러 가기 ->"
+                text="KUIT 7기 모집 사전 알림 등록하러 가기 ->"
                 isBig={true}
                 onClick={() => {
                   // todo: 알림 받기 기능 구현

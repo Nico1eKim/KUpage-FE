@@ -28,7 +28,7 @@ const Recruit = () => {
 
               <RecruitDescriptionBlock
                 title="지원 자격"
-                content={`지원 자격입니다. 지원 자격\n입니다. 지원 자격입니다. 지\n원 자격입니다.`}
+                content={`건국대학교 소속\n재학생/휴학생/졸업유예생`}
                 isBig={true}
               />
 
@@ -39,8 +39,8 @@ const Recruit = () => {
                     <p className="font-700">1차 서류</p>
                     <p className="font-500">지원서 작성 및 포트폴리오 제출</p>
 
-                    <p className="font-700 mt-28">1차 서류</p>
-                    <p className="font-500">지원서 작성 및 포트폴리오 제출</p>
+                    <p className="font-700 mt-28">2차 면접</p>
+                    <p className="font-500">대면 면접 이후 최종 합격</p>
                   </div>
                 }
                 isBig={true}
@@ -54,22 +54,22 @@ const Recruit = () => {
             <div className="grid grid-cols-2 gap-x-80 gap-y-60">
               <RecruitDescriptionBlock
                 title="서류 접수"
-                content={`2025. 09. 00 (월)\n~ 00. 00 (월) 23:59`}
+                content="일정 확정 후 공지 예정입니다."
                 isBig={false}
               />
               <RecruitDescriptionBlock
                 title="서류 결과 발표"
-                content={`2025. 00. 00 (월) 23:59`}
+                content="일정 확정 후 공지 예정입니다."
                 isBig={false}
               />
               <RecruitDescriptionBlock
                 title="대면 면접"
-                content={`2025. 09. 00 (월)\n~ 00. 00 (월) 23:59`}
+                content="일정 확정 후 공지 예정입니다."
                 isBig={false}
               />
               <RecruitDescriptionBlock
                 title="최종 결과 발표"
-                content={`2025. 00. 00 (월) 23:59`}
+                content="일정 확정 후 공지 예정입니다."
                 isBig={false}
               />
             </div>
