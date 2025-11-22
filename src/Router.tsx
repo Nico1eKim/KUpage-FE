@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import Articles from './pages/Article/Articles';
 import Creators from './pages/Creators/Creators';
@@ -17,6 +17,7 @@ import TeamMatching from './pages/TeamMatching/TeamMatching';
 import IdeaRegister from './pages/TeamMatching/IdeaRegister/IdeaRegister';
 import UploadPortfolio from './pages/Portfolio/UploadPortfolio';
 import PortfolioList from './pages/Portfolio/PortfolioList';
+import Building from './pages/Building/Building';
 
 const Router = () => {
   const routes_children_auth = [
@@ -38,6 +39,9 @@ const Router = () => {
     { path: '/portfolio/upload', element: <UploadPortfolio />, hasHeader: true },
     { path: '/portfolio/list', element: <PortfolioList />, hasHeader: true },
     { path: '/mypage/edit', element: <MyPageEdit />, hasHeader: true },
+    { path: '/building', element: <Building />, hasHeader: true },
+    { path: '/kuitlog', element: <Navigate to="/building" replace />, hasHeader: true },
+    { path: '/keyword', element: <Navigate to="/building" replace />, hasHeader: true },
     ...routes_children_auth,
     { path: '/*', element: <ErrorPage /> },
   ];
