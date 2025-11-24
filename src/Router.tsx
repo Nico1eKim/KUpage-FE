@@ -17,6 +17,8 @@ import TeamMatching from './pages/TeamMatching/TeamMatching';
 import IdeaRegister from './pages/TeamMatching/IdeaRegister/IdeaRegister';
 import UploadPortfolio from './pages/Portfolio/UploadPortfolio';
 import PortfolioList from './pages/Portfolio/PortfolioList';
+import ProjectApply from './pages/TeamMatching/ProjectApply/ProjectApply';
+import ApplyState from './pages/TeamMatching/ApplyState/ApplyState';
 import Building from './pages/Building/Building';
 
 const Router = () => {
@@ -33,6 +35,8 @@ const Router = () => {
     { path: '/team-matching', element: <TeamMatching />, hasHeader: true },
     { path: '/mypage', element: <MyPage />, hasHeader: true, hasFooter: true },
     { path: '/team-matching/register', element: <IdeaRegister />, hasHeader: true },
+    { path: '/team-matching/apply', element: <ProjectApply />, hasHeader: true },
+    { path: '/team-matching/apply-state', element: <ApplyState />, hasHeader: true },
     { path: '/projects', element: <Projects />, hasHeader: true },
     { path: '/projects/form', element: <ProjectForm /> },
     { path: '/articles', element: <Articles />, hasHeader: true },

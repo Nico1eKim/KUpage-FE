@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import RoundedSquareButton from '../commons/RoundedSquareButton';
 
 const TeamMatchingHeader = () => {
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate('/team-matching/apply-state');
+  };
   return (
     <div className="relative w-full h-[300px] flex flex-row justify-start items-center p-[47px] bg-[#16202b]">
       <div className="w-[70%] flex flex-col items-start gap-[10px]">
@@ -10,10 +15,15 @@ const TeamMatchingHeader = () => {
         </h3>
       </div>
       <div className="w-[30%] flex flex-row justify-end">
-        <RoundedSquareButton>아이디어 등록하기</RoundedSquareButton>
+        <RoundedSquareButton onClick={() => navigate('/team-matching/register')}>
+          아이디어 등록하기
+        </RoundedSquareButton>
       </div>
       {/* TODO : PM 계정만 이 요소 보이도록 수정 */}
-      <div className="absolute bottom-[10px] right-[10px] font-[700] text-[24px] cursor-pointer">
+      <div
+        className="absolute bottom-[10px] right-[10px] font-[700] text-[24px] cursor-pointer"
+        onClick={clickHandler}
+      >
         지원결과 확인 →
       </div>
     </div>
