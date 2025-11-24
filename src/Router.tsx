@@ -17,9 +17,9 @@ import TeamMatching from './pages/TeamMatching/TeamMatching';
 import IdeaRegister from './pages/TeamMatching/IdeaRegister/IdeaRegister';
 import UploadPortfolio from './pages/Portfolio/UploadPortfolio';
 import PortfolioList from './pages/Portfolio/PortfolioList';
+import Building from './pages/Building/Building';
 import ProjectApply from './pages/TeamMatching/ProjectApply/ProjectApply';
 import ApplyState from './pages/TeamMatching/ApplyState/ApplyState';
-import Building from './pages/Building/Building';
 
 const Router = () => {
   const routes_children_auth = [
