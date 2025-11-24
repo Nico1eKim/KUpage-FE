@@ -1,8 +1,8 @@
 import { JSX, Suspense } from 'react';
 import { matchPath, Outlet, useLocation } from 'react-router-dom';
 
-import Footer from './Footer';
-import Header from './Header';
+import Footer from '../../components/global/Footer';
+import Header from '../../components/global/Header';
 
 interface RoutesChildren {
   routes_children: {
