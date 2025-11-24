@@ -75,6 +75,7 @@ export default {
       darkblue: '#16202b',
       border: '#868686',
       'border-form': '#4f5e69',
+      red: '#ea3414',
       yellow: '#D5DA40',
       deepGray: '#4F5E69',
     },

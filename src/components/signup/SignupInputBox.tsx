@@ -8,6 +8,9 @@ interface SignupInputBoxProps {
   isError?: boolean;
 }
 
+/**
+ * src/components/form/InputBox.tsx와 동일 UI(대체 가능)
+ */
 const SignupInputBox = ({
   label,
   value,
