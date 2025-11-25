@@ -1,5 +1,6 @@
 import { StaffMember } from '../../constants/StaffConstants';
-import Github from '../../assets/imgs/Github.svg';
+import GithubIcon from '../../assets/imgs/Github.svg?react';
+import LinkIcon from '../../assets/imgs/Link.svg?react';
 
 interface StaffCardBackProps {
   member: StaffMember;
@@ -24,7 +25,7 @@ const StaffCardBack = ({ member }: StaffCardBackProps) => {
               rel="noopener noreferrer"
               aria-label="Personal Website"
             >
-              <img src={Github} className="size-36" />
+              <LinkIcon className="size-36" />
             </a>
           )}
           {member.githubLink && (
@@ -34,7 +35,7 @@ const StaffCardBack = ({ member }: StaffCardBackProps) => {
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
             >
-              <img src={Github} className="size-36" />
+              <GithubIcon className="size-36" />
             </a>
           )}
         </div>

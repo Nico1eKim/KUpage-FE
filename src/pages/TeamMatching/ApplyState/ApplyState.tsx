@@ -33,13 +33,7 @@ const ApplyState = () => {
       <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
       {viewType === APPLY_VIEW.List ? (
         applyData?.success ? (
-          <div
-            className="flex-1 mt-8 p-48 bg-darkblue flex flex-col gap-20"
-            style={{
-              background:
-                'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-            }}
-          >
+          <div className="flex-1 mt-8 p-48 bg-darkblue flex flex-col gap-20 bg-gradient">
             <>
               {userType === 'admin' &&
                 Array.isArray(applyData) &&
@@ -68,13 +62,7 @@ const ApplyState = () => {
             </>
           </div>
         ) : (
-          <div
-            className="flex-1 mt-8 p-92 bg-darkblue flex flex-col gap-20 text-24 font-400"
-            style={{
-              background:
-                'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-            }}
-          >
+          <div className="flex-1 mt-8 p-92 bg-darkblue flex flex-col gap-20 text-24 font-400 bg-gradient">
             {applyData?.message}
           </div>
         )

@@ -90,12 +90,7 @@ const UploadPortfolio = () => {
 
   return (
     <div className="relative">
-      <div
-        className="min-h-screen w-full pb-552"
-        style={{
-          background: 'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-        }}
-      >
+      <div className="min-h-screen w-full pb-552 bg-gradient">
         <form onSubmit={handleSubmit(onSubmit)}>
           <section className="sticky top-0 z-popup flex justify-between items-center w-full px-48 pt-100 pb-32 bg-darkblue">
             <h1 className="text-64 font-700 text-white">Portfolio</h1>

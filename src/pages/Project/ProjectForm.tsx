@@ -46,7 +46,7 @@ const ProjectForm = () => {
       <form
         id="projectForm"
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-128 px-48 py-60 mt-144 bg-signup-gradient w-full"
+        className="flex flex-col gap-128 px-48 py-60 mt-144 bg-gradient w-full"
       >
         <FormSection title="서비스명을 입력해주세요." required>
           <Controller

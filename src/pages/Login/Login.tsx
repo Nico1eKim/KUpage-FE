@@ -8,7 +8,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center bg-signup-gradient min-h-screen w-full px-120">
+    <div className="flex flex-row items-center justify-center bg-gradient min-h-screen w-full px-120">
       <img src={BigKUITLogo} alt="KUIT Logo" className="w-54" />
       <div className="flex flex-col text-left justify-between">
         <div className="h-[40rem]">

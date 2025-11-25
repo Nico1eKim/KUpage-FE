@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import Articles from './pages/Article/Articles';
 import Creators from './pages/Creators/Creators';
@@ -17,6 +17,7 @@ import TeamMatching from './pages/TeamMatching/TeamMatching';
 import IdeaRegister from './pages/TeamMatching/IdeaRegister/IdeaRegister';
 import UploadPortfolio from './pages/Portfolio/UploadPortfolio';
 import PortfolioList from './pages/Portfolio/PortfolioList';
+import Building from './pages/Building/Building';
 import ProjectApply from './pages/TeamMatching/ProjectApply/ProjectApply';
 import ApplyState from './pages/TeamMatching/ApplyState/ApplyState';
 
@@ -36,16 +37,15 @@ const Router = () => {
     { path: '/team-matching/register', element: <IdeaRegister />, hasHeader: true },
     { path: '/team-matching/apply', element: <ProjectApply />, hasHeader: true },
     { path: '/team-matching/apply-state', element: <ApplyState />, hasHeader: true },
-    ...routes_children_auth,
-    { path: '/*', element: <ErrorPage /> },
-
-    ...routes_children_auth,
     { path: '/projects', element: <Projects />, hasHeader: true },
     { path: '/projects/form', element: <ProjectForm /> },
     { path: '/articles', element: <Articles />, hasHeader: true },
     { path: '/portfolio/upload', element: <UploadPortfolio />, hasHeader: true },
     { path: '/portfolio/list', element: <PortfolioList />, hasHeader: true },
     { path: '/mypage/edit', element: <MyPageEdit />, hasHeader: true },
+    { path: '/building', element: <Building />, hasHeader: true },
+    { path: '/kuitlog', element: <Navigate to="/building" replace />, hasHeader: true },
+    { path: '/keyword', element: <Navigate to="/building" replace />, hasHeader: true },
     ...routes_children_auth,
     { path: '/*', element: <ErrorPage /> },
   ];
