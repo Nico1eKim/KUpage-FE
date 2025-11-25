@@ -5,4 +5,4 @@ export const ROLE = {
   WEB: 'Web',
   SERVER: 'Server',
   ANDROID: 'Android',
-};
+} as const;
