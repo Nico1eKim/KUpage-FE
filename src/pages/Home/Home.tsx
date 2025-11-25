@@ -42,12 +42,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div className="relative">
-      <div
-        className="min-h-screen w-full flex-center flex-col gap-320"
-        style={{
-          background: 'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-        }}
-      >
+      <div className="min-h-screen w-full flex-center flex-col gap-320 bg-gradient">
         <div className="relative w-580 h-504 mt-120">
           <img src={BigKUITLogo} alt="KUIT Logo" className="w-580 absolute-center" />
           <div className="flex-center flex-col absolute-center gap-20">

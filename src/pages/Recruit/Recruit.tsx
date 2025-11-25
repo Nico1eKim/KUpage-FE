@@ -8,12 +8,7 @@ import RecruitHeader from '../../components/recruit/RecruitHeader';
 const Recruit = () => {
   return (
     <div className="relative">
-      <div
-        className="min-h-screen w-full flex flex-col"
-        style={{
-          background: 'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-        }}
-      >
+      <div className="min-h-screen w-full flex flex-col bg-gradient">
         <RecruitHeader />
 
         <div className="flex-center flex-col pt-68 gap-320 mb-176">

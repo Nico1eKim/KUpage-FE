@@ -82,7 +82,7 @@ const Signup = () => {
   }, [form.college]);
 
   return (
-    <div className="flex flex-col relative items-center bg-signup-gradient min-h-screen w-screen p-120">
+    <div className="flex flex-col relative items-center bg-gradient min-h-screen w-screen p-120">
       <div className="w-[70%]">
         <SignupHeader nowStep={step} title={getTitleByStep(step)} onClick={prevStep} />
       </div>

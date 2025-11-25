@@ -46,12 +46,7 @@ const MyPage = () => {
   const [isEdit, setIsEdit] = useState(false);
 
   return (
-    <div
-      className="min-h-screen w-full px-40 py-60 flex flex-col"
-      style={{
-        background: 'linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%)',
-      }}
-    >
+    <div className="min-h-screen w-full px-40 py-60 flex flex-col bg-gradient">
       <div className="w-full mb-36">
         {/* 프로필 섹션 */}
         <section className="flex items-center justify-between w-full mb-80">

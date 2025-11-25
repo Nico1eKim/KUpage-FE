@@ -37,12 +37,7 @@ const PORTFOLIO_DATA = [
 const PortfolioList = () => {
   return (
     <div className="relative">
-      <div
-        className="min-h-screen w-full pb-552"
-        style={{
-          background: 'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-        }}
-      >
+      <div className="min-h-screen w-full pb-552 bg-gradient">
         <PortfolioListHeader />
         <div className="flex flex-col gap-32 px-72 py-56">
           {PORTFOLIO_DATA.map((item) => (

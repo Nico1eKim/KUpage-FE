@@ -41,13 +41,7 @@ const TeamMatchingBody = () => {
     <div className="w-full h-full mt-8 flex flex-row">
       {isEnabled && teamData && teamData.success && (
         <>
-          <div
-            className="w-[40%] flex-1 p-[47px] flex flex-col gap-28"
-            style={{
-              background:
-                'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-            }}
-          >
+          <div className="w-[40%] flex-1 p-[47px] flex flex-col gap-28 bg-gradient">
             {teamData.result.teams.map((team) => {
               return (
                 <TeamCard
