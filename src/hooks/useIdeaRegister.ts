@@ -1,6 +1,7 @@
 import { ENDPOINTS } from '../config';
 import { IdeaRegisterInfo } from '../constants/IdeaRegister/IdeaRegitster';
-import { FileUploadResponse } from '../types/ideasApiTypes';
+import { ApiResponse } from '../types/commonApiResponseTypes';
+import { FileUploadResult } from '../types/ideasApiTypes';
 import useApi from './useApi';
 
 const useIdeaRegister = () => {
@@ -8,29 +9,37 @@ const useIdeaRegister = () => {
 
   const uploadFile = async (presignedUrl: string, imageFile: File) => {
     try {
-      await api.put(presignedUrl, imageFile);
+      await api.put(presignedUrl, imageFile, {
+        skipAuth: true,
+        headers: {
+          'Content-Type': imageFile.type,
+        },
+      });
       return true;
     } catch {
       throw new Error('파일 업로드 실패');
     }
   };
 
-  const testUploadFile = async (file: File, mime: string) => {
+  const testUploadFile = async (file: File) => {
+    const mime = file.type;
+    const uploadEndpoint =
+      mime === 'application/pdf' ? ENDPOINTS.FILE_UPLOAD : ENDPOINTS.IMG_UPLOAD;
     try {
-      const res = await api.post<FileUploadResponse>(ENDPOINTS.IMG_UPLOAD, {
-        'Content-Type': mime,
-        'Content-Length': 1500,
-        'Content-Name': 'testImage',
+      const res = await api.post<ApiResponse<FileUploadResult>>(uploadEndpoint, {
+        contentType: file.type,
+        contentLength: file.size,
+        contentName: file.name,
       });
 
       const data = res.data;
-      if (data.isSuccess) {
+      if (data.success) {
         const isUploadSuccess = await uploadFile(data.result.presignedUrl, file);
         if (isUploadSuccess) {
           return data.result.fileUrl;
         }
       } else {
-        throw new Error(data.responseMessage || 'Presigned URL 요청에 실패했습니다.');
+        throw new Error(data.message || 'Presigned URL 요청에 실패했습니다.');
       }
     } catch (err) {
       throw err;
@@ -39,11 +48,8 @@ const useIdeaRegister = () => {
 
   const ideaRegister = async (userInput: IdeaRegisterInfo) => {
     try {
-      const imgUploadUrl = await testUploadFile(userInput.imageUrl as File, 'image/png');
-      const pdfUploadUrl = await testUploadFile(
-        userInput.serviceIntroFile as File,
-        'application/pdf'
-      );
+      const imgUploadUrl = await testUploadFile(userInput.imageUrl as File);
+      const pdfUploadUrl = await testUploadFile(userInput.serviceIntroFile as File);
 
       const toServerData = {
         ...userInput,
@@ -52,9 +58,8 @@ const useIdeaRegister = () => {
       };
 
       const res = await api.post(ENDPOINTS.IDEAS, toServerData);
-      if (res.data.success) {
-        console.log('아이디어 등록 성공');
-      }
+
+      return res.data.success;
     } catch (err) {
       console.error('아이디어 등록 실패:', err);
     }
