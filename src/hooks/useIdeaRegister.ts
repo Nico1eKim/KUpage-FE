@@ -48,8 +48,10 @@ const useIdeaRegister = () => {
 
   const ideaRegister = async (userInput: IdeaRegisterInfo) => {
     try {
-      const imgUploadUrl = await testUploadFile(userInput.imageUrl as File);
-      const pdfUploadUrl = await testUploadFile(userInput.serviceIntroFile as File);
+      const [imgUploadUrl, pdfUploadUrl] = await Promise.all([
+        testUploadFile(userInput.imageUrl as File),
+        testUploadFile(userInput.serviceIntroFile as File),
+      ]);
 
       const toServerData = {
         ...userInput,
