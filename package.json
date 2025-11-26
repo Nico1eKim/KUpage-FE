@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -o upstream"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
