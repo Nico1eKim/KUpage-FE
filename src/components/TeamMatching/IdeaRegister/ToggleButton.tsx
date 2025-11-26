@@ -1,4 +1,4 @@
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useWatch } from 'react-hook-form';
 import clsx from 'clsx';
 
 interface Props {
@@ -8,8 +8,8 @@ interface Props {
 }
 
 const ToggleButton = ({ name, value, field }: Props) => {
-  const { watch, setValue } = useFormContext();
-  const selectedValue: string = watch(field);
+  const { control, setValue } = useFormContext();
+  const selectedValue: string = useWatch({ control, name: field });
 
   const isActive = selectedValue === value;
 
