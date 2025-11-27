@@ -6,24 +6,43 @@ import {
   ProjectApplySchema,
   projectApplySchema,
 } from '../../../components/TeamMatching/ProjectApply/schema/projectApplySchema';
+import { useLocation } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
+import { useEffect } from 'react';
 
 const ProjectApply = () => {
+  const location = useLocation();
+  console.log('🔍 location in ProjectApply:', location);
+  console.log('🔍 location.state:', location.state);
+  const { teamData } = location.state || {};
+
   const methods = useForm<ProjectApplySchema>({
     resolver: zodResolver(projectApplySchema),
     defaultValues: {
       motivation: '',
-      appliedPart: [],
+      appliedPart: undefined,
       portfolioUrl: undefined,
     },
     mode: 'onSubmit',
     shouldFocusError: false,
   });
 
+  useEffect(() => {
+    console.log('넘어옴:', teamData);
+  }, [teamData]);
+
+  if (!teamData)
+    return (
+      <div className="w-full min-h-screen flex-center">
+        <Loader2 className="w-20 h-20 animate-spin text-main" />
+      </div>
+    );
+
   return (
     <FormProvider {...methods}>
       <form noValidate className="min-h-screen bg-gradient">
         <ProjectApplyHeader />
-        <ProjectApplyBody />
+        <ProjectApplyBody teamData={teamData} />
       </form>
     </FormProvider>
   );

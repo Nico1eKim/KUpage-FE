@@ -1,22 +1,36 @@
 import RoundedSquareButton from '../commons/RoundedSquareButton';
 import RightUpArrow from '../../assets/imgs/RightUpArrow.svg';
-import { TeamInfo } from '../../types/teamMatchingApiTypes';
 import TextBadge from '../commons/TextBadge';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { TeamMatchingContext } from './TeamMatchingContext';
+import { Loader2 } from 'lucide-react';
 
-interface Props {
-  projectData: TeamInfo;
-}
-
-const TeamMatchingDetailContainer = ({ projectData }: Props) => {
+const TeamMatchingDetailContainer = () => {
   const navigate = useNavigate();
+  const { selectedTeamData: projectData } = useContext(TeamMatchingContext)!;
+
+  const applyBtnClickHandler = () => {
+    if (projectData) {
+      navigate('/team-matching/apply', {
+        state: {
+          teamData: projectData,
+        },
+      });
+    }
+  };
+
+  if (!projectData) {
+    return (
+      <div className="w-full min-h-screen flex-center">
+        <Loader2 className="w-20 h-20 animate-spin text-main" />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-full flex flex-col justify-start gap-28">
-      <RoundedSquareButton
-        className={'w-[257px] h-[71px] !px-24'}
-        onClick={() => navigate('/team-matching/apply')}
-      >
+      <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
         이 프로젝트 지원하기
       </RoundedSquareButton>
 
