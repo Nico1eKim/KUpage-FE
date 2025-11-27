@@ -10,7 +10,7 @@ const IdeaRegisterTextInput = () => {
     control,
     formState: { errors },
   } = useFormContext();
-  const value: string = useWatch({ control, name: name });
+  const value: string = useWatch({ control, name: name }) ?? '';
   const length = value.length;
 
   return (

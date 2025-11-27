@@ -38,11 +38,14 @@ const ProjectApplyFileInput = () => {
 
           if (value && url) {
             return (
-              <iframe
-                src={url}
-                className="w-full flex flex-center rounded-[10px] h-[106px]"
-                title="pdf preview"
-              />
+              <div className="w-full flex items-center justify-center rounded-[10px] bg-[#4f5e69] h-[106px]">
+                <label className="cursor-pointer flex flex-col items-center justify-center">
+                  <div className="flex flex-col items-center justify-center">
+                    <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
+                    <div className="mt-4 text-[#2f383f] text-[15px] text-600">{value?.name}</div>
+                  </div>
+                </label>
+              </div>
             );
           }
 

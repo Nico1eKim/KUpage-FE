@@ -8,11 +8,16 @@ import {
 } from '../../../components/TeamMatching/ProjectApply/schema/projectApplySchema';
 import { useLocation } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
-import { useEffect } from 'react';
+import { TeamInfo } from '../../../types/teamMatchingApiTypes';
+
+interface LocationState {
+  teamData?: TeamInfo;
+}
 
 const ProjectApply = () => {
   const location = useLocation();
-  const { teamData } = location.state || {};
+  const state = location.state as LocationState | null;
+  const teamData = state?.teamData;
 
   const methods = useForm<ProjectApplySchema>({
     resolver: zodResolver(projectApplySchema),
@@ -35,7 +40,7 @@ const ProjectApply = () => {
   return (
     <FormProvider {...methods}>
       <form noValidate className="min-h-screen bg-gradient">
-        <ProjectApplyHeader />
+        <ProjectApplyHeader teamId={teamData.teamId} />
         <ProjectApplyBody teamData={teamData} />
       </form>
     </FormProvider>
