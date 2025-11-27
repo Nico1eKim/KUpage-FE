@@ -33,7 +33,6 @@ const ProjectApplyBody = () => {
                 name={partType.name}
                 value={partType.value}
                 field={'appliedPart'}
-                limitNum={1}
               />
             ))}
           </div>

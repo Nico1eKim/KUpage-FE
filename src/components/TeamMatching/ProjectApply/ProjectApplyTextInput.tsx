@@ -1,16 +1,16 @@
 import clsx from 'clsx';
 import { styles } from '../../../constants/IdeaRegister/ideaRegisterStyle.constants';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useWatch } from 'react-hook-form';
 
 const IdeaRegisterTextInput = () => {
   const name = 'motivation';
   const TEXT_LIMITATION = 1000;
   const {
     register,
-    watch,
+    control,
     formState: { errors },
   } = useFormContext();
-  const value: string = watch(name) ?? '';
+  const value: string = useWatch({ control, name: name });
   const length = value.length;
 
   return (
