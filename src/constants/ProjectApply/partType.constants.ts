@@ -14,4 +14,6 @@ export const PART_TYPE = [
     name: 'Android',
     value: 'ANDROID',
   },
-];
+] as const;
+
+export type partTypeValue = (typeof PART_TYPE)[number]['value'];

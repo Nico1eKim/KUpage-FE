@@ -1,10 +1,11 @@
 import { ENDPOINTS } from '../config';
 import { IdeaRegisterInfo } from '../constants/IdeaRegister/IdeaRegitster';
+import { ProjectApplyInfo } from '../constants/ProjectApply/projectApply';
 import { ApiResponse } from '../types/commonApiResponseTypes';
 import { FileUploadResult } from '../types/ideasApiTypes';
 import useApi from './useApi';
 
-const useIdeaRegister = () => {
+const useFileUploader = () => {
   const { api } = useApi();
 
   const uploadFile = async (presignedUrl: string, imageFile: File) => {
@@ -67,7 +68,24 @@ const useIdeaRegister = () => {
     }
   };
 
-  return ideaRegister;
+  const projectApply = async (teamId: number, userInput: ProjectApplyInfo) => {
+    try {
+      const pdfUploadUrl = await testUploadFile(userInput.portfolioUrl as File);
+
+      const toServerData = {
+        ...userInput,
+        portfolioUrl: pdfUploadUrl as string,
+      };
+
+      const res = await api.post(`/teams/${teamId}/match`, toServerData);
+
+      return res.data.success;
+    } catch (err) {
+      console.error('프로젝트 지원 실패:', err);
+    }
+  };
+
+  return { ideaRegister, projectApply };
 };
 
-export default useIdeaRegister;
+export default useFileUploader;

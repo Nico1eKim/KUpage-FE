@@ -12,8 +12,6 @@ import { useEffect } from 'react';
 
 const ProjectApply = () => {
   const location = useLocation();
-  console.log('🔍 location in ProjectApply:', location);
-  console.log('🔍 location.state:', location.state);
   const { teamData } = location.state || {};
 
   const methods = useForm<ProjectApplySchema>({
@@ -26,10 +24,6 @@ const ProjectApply = () => {
     mode: 'onSubmit',
     shouldFocusError: false,
   });
-
-  useEffect(() => {
-    console.log('넘어옴:', teamData);
-  }, [teamData]);
 
   if (!teamData)
     return (

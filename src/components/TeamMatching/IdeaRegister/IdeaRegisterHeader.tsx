@@ -1,10 +1,10 @@
 import { useFormContext } from 'react-hook-form';
 import RoundedSquareButton from '../../commons/RoundedSquareButton';
 import { IdeaRegisterSchema } from './schema/ideaRegisterSchema';
-import useIdeaRegister from '../../../hooks/useIdeaRegister';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Toast from '../../commons/Toast';
+import useFileUploader from '../../../hooks/useFileUploader';
 
 const IdeaRegisterHeader = () => {
   const {
@@ -12,7 +12,7 @@ const IdeaRegisterHeader = () => {
     formState: { isSubmitting },
   } = useFormContext<IdeaRegisterSchema>();
   const navigate = useNavigate();
-  const ideaRegister = useIdeaRegister();
+  const { ideaRegister } = useFileUploader();
 
   const onSubmit = handleSubmit(
     (data) => {

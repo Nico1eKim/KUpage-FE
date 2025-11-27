@@ -1,5 +1,5 @@
 // prettier-ignore
-import { notificaion } from '../../../constants/ProjectApply/notification.constants';
+import { notification } from '../../../constants/ProjectApply/notification.constants';
 import RoundedSquareButton from '../../commons/RoundedSquareButton';
 
 const ProjectApplyHeader = () => {
@@ -10,7 +10,7 @@ const ProjectApplyHeader = () => {
         <RoundedSquareButton>최종 제출하기</RoundedSquareButton>
       </div>
       <pre className="whitespace-pre-wrap font-sans text-[16px] leading-relaxed text-left">
-        {notificaion}
+        {notification}
       </pre>
     </div>
   );
