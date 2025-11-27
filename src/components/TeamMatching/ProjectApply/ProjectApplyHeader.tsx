@@ -18,11 +18,15 @@ const ProjectApplyHeader = ({ teamId }: { teamId: number }) => {
 
   const onSubmit = handleSubmit(
     (data) => {
-      projectApply(teamId, data).then(() => {
-        toast(<Toast message="프로젝트 지원이 완료되었어요." />, {
-          onClose: () => navigate('/team-matching'),
+      projectApply(teamId, data)
+        .then(() => {
+          toast(<Toast message="프로젝트 지원이 완료되었어요." />, {
+            onClose: () => navigate('/team-matching'),
+          });
+        })
+        .catch(() => {
+          toast(<Toast message="프로젝트 지원에 실패했어요." />);
         });
-      });
     },
     (errors) => console.log('❌ 유효성 에러:', errors)
   );

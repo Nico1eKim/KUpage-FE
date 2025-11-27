@@ -79,9 +79,13 @@ const useFileUploader = () => {
 
       const res = await api.post(`/teams/${teamId}/match`, toServerData);
 
-      return res.data.success;
+      if (!res.data.success) {
+        throw new Error('프로젝트 지원 실패');
+      }
+
+      return true;
     } catch (err) {
-      console.error('프로젝트 지원 실패:', err);
+      throw Error('프로젝트 지원 실패:' + err);
     }
   };
 

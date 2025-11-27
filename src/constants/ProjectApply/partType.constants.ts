@@ -2,17 +2,17 @@ export const PART_TYPE = [
   {
     id: 0,
     name: 'Web',
-    value: 'WEB',
+    value: 'Web',
   },
   {
     id: 1,
     name: 'Server',
-    value: 'SERVER',
+    value: 'Server',
   },
   {
     id: 2,
     name: 'Android',
-    value: 'ANDROID',
+    value: 'Android',
   },
 ] as const;
 
