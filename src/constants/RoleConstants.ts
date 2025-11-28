@@ -1,7 +1,8 @@
 export const ROLE = {
   OPERATIONS_TEAM: '운영팀',
-  ANDROID: 'Android',
+  PM: 'PM',
+  DESIGNER: 'Designer',
   WEB: 'Web',
   SERVER: 'Server',
-  PM: 'PM',
-};
+  ANDROID: 'Android',
+} as const;

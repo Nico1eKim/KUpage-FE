@@ -9,6 +9,152 @@ export interface StaffMember {
 }
 
 const STAFFS: { [key: number]: StaffMember[] } = {
+  6: [
+    // 운영팀
+    {
+      name: '조익성',
+      position: '운영팀',
+      role: '회장',
+      description: '4학년 1학기 재학 중\n재밌게 해봅시당',
+      imageUrl: '/staff/jo_ikseong.jpg',
+      githubLink: 'https://github.com/ikseong00',
+    },
+    {
+      name: '이지유',
+      position: '운영팀',
+      role: '부회장',
+      description: '4학년 2학기 재학 중\n하나둘셋 PM 파이팅',
+      imageUrl: '/staff/lee_jiyoo_6.png',
+      siteLink: 'https://jeeyoegu0510.notion.site/',
+    },
+    {
+      name: '정윤아',
+      position: '운영팀',
+      role: '총무',
+      description: '3학년 2학기 재학 중\n잘 부탁드려요~~',
+      imageUrl: '/staff/jung_yuna.png',
+      githubLink: 'https://github.com/yuna569',
+    },
+    // PM
+    {
+      name: '김재훈',
+      position: 'PM',
+      role: 'PM 파트장',
+      description: '3학년 2학기 재학 중\n최강 PM 화이팅!',
+      imageUrl: '/staff/kim_jaehun.png',
+      siteLink: 'https://shrub-crowd-46c.notion.site/2276196331d2804989f5f9b37268c2ed',
+    },
+    {
+      name: '김효민',
+      position: 'PM',
+      role: 'PM 파트장',
+      description: '2학년 2학기 재학 중\nPM 화이팅!',
+      imageUrl: '/staff/kim_hyomin.png',
+      siteLink: 'https://drive.google.com/file/d/1q1XJ1elqdqXPV3cC_jmf58M3O2iCNbal/view',
+    },
+    // Design
+    {
+      name: '김다솜',
+      position: 'Designer',
+      role: 'Design 파트장',
+      description:
+        '3학년 1학기 마치고 휴학 중\n좋은 경험이 되셨으면 좋겠습니다 :)\n디자이너 파이팅!',
+      imageUrl: '/staff/kim_dasom.png',
+      siteLink: ' https://dasom.myportfolio.com/work',
+    },
+    {
+      name: '김효정',
+      position: 'Designer',
+      role: 'Design 파트장',
+      description: '3학년 2학기 재학 중\n디자이너들 파이티잉~~~~~:)))))))',
+      imageUrl: '/staff/kim_hyojeong.png',
+      siteLink: 'https://clammy-buckthorn-168.notion.site/1fe334782ceb8066b062e745b571d2cf',
+    },
+    // WEB
+    {
+      name: '김별찬',
+      position: 'Web',
+      role: 'Web 파트장',
+      description:
+        '졸업\n좋은 추억 많이 쌓아가셨으면 좋겠습니다.\n커피챗 / 질문 / 잡담 뭐든지 환영해요!',
+      imageUrl: '/staff/kim_byeolchan.png',
+      githubLink: 'https://github.com/algoORgoal',
+    },
+    {
+      name: '나윤상',
+      position: 'Web',
+      role: 'Web 파트장',
+      description: '4학년 2학기 재학 중\n모두 잘 지내봅시다.',
+      imageUrl: '/staff/na_yoonnsang.png',
+      githubLink: 'https://github.com/nayounsang',
+    },
+    {
+      name: '박태희',
+      position: 'Web',
+      role: 'Web 파트장',
+      description: '2학년 2학기 재학 중\n같이 성장해 나가는 파트장이 되겠습니다~',
+      imageUrl: '/staff/park_taehee.png',
+      githubLink: 'https://github.com/qkrxogmla',
+    },
+    {
+      name: '최준서',
+      position: 'Web',
+      role: 'Web 파트장',
+      description: '3학년 1학기 재학 중\n다같이 성장하는 쿠잇이 되면 좋겠습니다.',
+      imageUrl: '/staff/choi_junseo.png',
+      githubLink: 'https://github.com/JunSeochoi',
+    },
+    // Server
+    {
+      name: '김상균',
+      position: 'Server',
+      role: 'Server 파트장',
+      description: '4학년 2학기 재학 중\n한 학기 다들 화이팅입니다',
+      imageUrl: '/staff/kim_sangkyun.png',
+      githubLink: 'https://github.com/ksg1227',
+    },
+    {
+      name: '김지현',
+      position: 'Server',
+      role: 'Server 파트장',
+      description: '3학년 2학기 재학 중\n~끝까지~ 화이팅이에요 !',
+      imageUrl: '/staff/kim_jihyun.png',
+      githubLink: 'https://github.com/jyun-KIM',
+    },
+    {
+      name: '조동현',
+      position: 'Server',
+      role: 'Server 파트장',
+      description: '3학년 2학기 재학 중\n한학기 열심히 해봅시다!!',
+      imageUrl: '/staff/jo_donghyun.png',
+      githubLink: 'https://github.com/mr8356',
+    },
+    // Android
+    {
+      name: '이성준',
+      position: 'Android',
+      role: 'Android 파트장',
+      description: '1학년 2학기 재학 중\n부족하지만 잘 부탁드립니다 !!',
+      imageUrl: '/staff/lee_sungjun.png',
+      githubLink: 'https://github.com/protossmanse',
+    },
+    {
+      name: '조규빈',
+      position: 'Android',
+      role: 'Android 파트장',
+      description: '4학년 2학기 재학 중\n한 학기 동안 잘 부탁드립니다!',
+      imageUrl: '/staff/cho_kyubin.png',
+      githubLink: 'https://github.com/rbqks529',
+    },
+    {
+      name: '채민지',
+      position: 'Android',
+      role: 'Android 파트장',
+      description: '3학년 2학기 재학 중\n한 학기 동안 안드로이드 뿌셔봅시다 !!!',
+      imageUrl: '/staff/chae_minji.png',
+      githubLink: 'https://github.com/alswlekk',
+    },
+  ],
   4: [
     // 운영팀
     {

@@ -12,29 +12,29 @@ import StaffContent from '../../components/home/StaffContent';
 // TODO: 추후 서버 데이터 반영하면 지우기
 const projectList = [
   {
-    title: 'Chat Diary',
-    description: '가장 쉬운 일기 습관',
-    img: BigKUITLogo,
+    title: '메디케어콜',
+    description: '메디가 대신 챙기는 부모님 건강',
+    img: '/projects/medicarecall.png',
   },
   {
-    title: '방울이',
-    description: '내가 키우는 뽀모도로',
-    img: BigKUITLogo,
+    title: '찾아유',
+    description: '유기동물 종합 어플리케이션',
+    img: '/projects/findyou.png',
   },
   {
-    title: 'Beering',
-    description: '나만의 맥주 취향 아카이빙 서비스',
-    img: BigKUITLogo,
+    title: '스페이스',
+    description: '단 하나의 동아리 커뮤니티',
+    img: '/projects/space.png',
   },
   {
-    title: 'Coupone',
-    description: '쿠폰을 내 손 안에',
-    img: BigKUITLogo,
+    title: 'MajorFolio',
+    description: '우리끼리 만드는 과제장터',
+    img: '/projects/majorfolio.png',
   },
   {
-    title: '집콕',
-    description: "현명하게 내 자취방을 '콕' 하다",
-    img: BigKUITLogo,
+    title: 'CoNet',
+    description: '맞춰가는 시간, 만들어가는 추억',
+    img: '/projects/conet.png',
   },
 ];
 
@@ -42,12 +42,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div className="relative">
-      <div
-        className="min-h-screen w-full flex-center flex-col gap-320"
-        style={{
-          background: 'var(--1, linear-gradient(180deg, #16202B 0%, #1E2C33 50.01%, #203636 100%))',
-        }}
-      >
+      <div className="min-h-screen w-full flex-center flex-col gap-320 bg-gradient">
         <div className="relative w-580 h-504 mt-120">
           <img src={BigKUITLogo} alt="KUIT Logo" className="w-580 absolute-center" />
           <div className="flex-center flex-col absolute-center gap-20">
@@ -55,15 +50,14 @@ const Home = () => {
               <KuitAnimation />
             </h1>
             <p className="text-white text-32 font-500">건국대학교 기획/개발 동아리 KUIT</p>
-            <GreenButton text="KUIT 6기 지원하러 가기 ->" isBig />
+            <GreenButton text="KUIT 7기 지원하러 가기 ->" isBig />
           </div>
         </div>
 
         <div>
           <div className="flex-center gap-84">
-            <InProgressBox title="진행된 프로젝트" count={18} />
-            <InProgressBox title="진행된 스터디" count={29} />
-            <InProgressBox title="거쳐간 사람들" count={298} counters="명" />
+            <InProgressBox title="진행된 프로젝트" count={42} />
+            <InProgressBox title="진행된 스터디" count={63} />
           </div>
 
           <p className="text-white text-24 font-500 leading-[4rem] mt-72">
@@ -75,10 +69,10 @@ const Home = () => {
             <br />
           </p>
 
-          <p className="text-main text-32 font-700 leading-[5rem] mt-72">
+          {/* <p className="text-main text-32 font-700 leading-[5rem] mt-72">
             KUIT 6기 모집이 시작됩니다.
             <br />한 학기 동안 함께 성장할 여러분의 지원을 기다리고 있습니다!
-          </p>
+          </p> */}
         </div>
 
         <div className="flex-center flex-col">

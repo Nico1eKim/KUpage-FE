@@ -13,7 +13,7 @@ const ApplicantModal = ({ onClose, applicantData }: Props) => {
       onClick={onClose}
     >
       <div
-        className="flex flex-col gap-40 items-end w-808 h-auto px-52 py-40 rounded-20 z-10 bg-[linear-gradient(180deg,_#17222C_0%,_#203536_100%)]"
+        className="flex flex-col gap-40 items-end w-808 h-auto px-52 py-40 rounded-20 z-10 bg-gradient"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="w-full flex flex-col items-start gap-24">

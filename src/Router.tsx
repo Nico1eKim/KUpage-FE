@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import ArticleEdit from './pages/Article/ArticleEdit';
 import Articles from './pages/Article/Articles';
@@ -6,7 +6,7 @@ import Creators from './pages/Creators/Creators';
 import ErrorPage from './pages/Global/ErrorPage';
 import Layout from './pages/Global/Layout';
 import Home from './pages/Home/Home';
-import DiscordCallback from './pages/Login/DiscoreCallback';
+import DiscordCallback from './pages/Login/DiscordCallback';
 import Login from './pages/Login/Login';
 import MyPage from './pages/MyPage/MyPage';
 import MyPageEdit from './pages/MyPage/MyPageEdit';
@@ -32,21 +32,17 @@ const Router = () => {
     { path: '/', element: <Home />, hasHeader: true, hasFooter: true },
     { path: '/recruit', element: <Recruit />, hasHeader: true, hasFooter: true },
     { path: '/creators', element: <Creators />, hasHeader: true, hasFooter: true },
-    { path: '/team-matching', element: <TeamMatching />, hasHeader: true },
-    { path: '/mypage', element: <MyPage />, hasHeader: true, hasFooter: true },
-    ...routes_children_auth,
-    { path: '/*', element: <ErrorPage /> },
-    { path: '/team-matching/register', element: <IdeaRegister />, hasHeader: true },
-    { path: '/team-matching/apply', element: <ProjectApply />, hasHeader: true },
-
-    ...routes_children_auth,
-    { path: '/team-matching/apply-state', element: <ApplyState />, hasHeader: true },
     { path: '/projects', element: <Projects />, hasHeader: true },
     { path: '/projects/form', element: <ProjectForm /> },
     { path: '/articles', element: <Articles />, hasHeader: true },
     { path: '/article/:id/edit', element: <ArticleEdit />, hasHeader: true },
     { path: '/portfolio/upload', element: <UploadPortfolio />, hasHeader: true },
     { path: '/portfolio/list', element: <PortfolioList />, hasHeader: true },
+    { path: '/team-matching', element: <TeamMatching />, hasHeader: true },
+    { path: '/team-matching/register', element: <IdeaRegister />, hasHeader: true },
+    { path: '/team-matching/apply', element: <ProjectApply />, hasHeader: true },
+    { path: '/team-matching/apply-state', element: <ApplyState />, hasHeader: true },
+    { path: '/mypage', element: <MyPage />, hasHeader: true, hasFooter: true },
     { path: '/mypage/edit', element: <MyPageEdit />, hasHeader: true },
     ...routes_children_auth,
     { path: '/*', element: <ErrorPage /> },

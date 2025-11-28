@@ -21,10 +21,7 @@ const ProjectApply = () => {
 
   return (
     <FormProvider {...methods}>
-      <form
-        noValidate
-        className="min-h-screen [background:var(--1,linear-gradient(180deg,#16202B_0%,#1E2C33_50.01%,#203636_100%))]"
-      >
+      <form noValidate className="min-h-screen bg-gradient">
         <ProjectApplyHeader />
         <ProjectApplyBody />
       </form>

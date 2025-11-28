@@ -12,10 +12,13 @@ const FAQAccordion = () => {
   return (
     <div className="flex flex-col gap-24">
       {FAQ.map((item, index) => (
-        <div className="w-1080 px-36 py-28 bg-gray border-2 border-solid border-border rounded-10 text-white">
+        <div
+          onClick={() => toggleOpen(index)}
+          className="w-1080 px-36 py-28 bg-gray border-2 border-solid border-border rounded-10 text-white  cursor-pointer"
+        >
           <div key={index} className="flex justify-between items-center">
             <h3 className="text-24 font-600">{item.question}</h3>
-            <div onClick={() => toggleOpen(index)} className="cursor-pointer">
+            <div>
               {openIndex === index ? (
                 <img src={ArrowDown} className="w-20 scale-y-[-1]" />
               ) : (
