@@ -5,6 +5,9 @@ interface ProjectFormImgProps {
   setResultImg: (value: string) => void;
 }
 
+/**
+ * TODO: `src/components/form/ImageField.tsx` 로 대체
+ */
 const ProjectFormImg = ({ setResultImg }: ProjectFormImgProps) => {
   const [previewImg, setPreviewImg] = useState('');
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

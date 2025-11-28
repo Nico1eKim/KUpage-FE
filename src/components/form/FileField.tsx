@@ -1,20 +1,21 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
+
 import FileBtn from '../../assets/imgs/FileBtn.svg';
 
-interface ProjectFormFileProps {
-  fileName: string;
-  setFileName: (value: string) => void;
-}
+const MAX_SIZE = 20 * 1024 * 1024;
 
-/**
- * TODO: `src/components/form/FileField.tsx` 로 대체
- */
-const ProjectFormFile = ({ fileName, setFileName }: ProjectFormFileProps) => {
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+const FileField = ({
+  onChange,
+  ...attr
+}: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>) => {
+  const [fileName, setFileName] = useState<string | null>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files;
-    const maxSize = 20 * 1024 * 1024;
-    if (file && maxSize > file[0].size) setFileName(file[0].name);
+    if (file && MAX_SIZE > file[0].size) setFileName(file[0].name);
+    onChange?.(e);
   };
+
   return (
     <div>
       <label
@@ -31,10 +32,11 @@ const ProjectFormFile = ({ fileName, setFileName }: ProjectFormFileProps) => {
         type="file"
         className="hidden"
         accept=".pdf"
-        onChange={(e) => onChange(e)}
+        onChange={(e) => handleChange(e)}
+        {...attr}
       />
     </div>
   );
 };
 
-export default ProjectFormFile;
+export default FileField;
