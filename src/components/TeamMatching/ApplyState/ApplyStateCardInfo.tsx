@@ -1,13 +1,15 @@
 import clsx from 'clsx';
-import { userType } from '../../../pages/TeamMatching/ApplyState/ApplyState';
 import { ApplyStateResponse } from '../../../types/applyStateTypes';
 import TextBadge from '../../commons/TextBadge';
+import { ApplyStateContext } from './ApplyStateContext';
+import { useContext } from 'react';
 
 interface Props {
   applyData: ApplyStateResponse;
 }
 
 const ApplyStateCardInfo = ({ applyData }: Props) => {
+  const { userType } = useContext(ApplyStateContext)!;
   return (
     <div
       className={clsx(

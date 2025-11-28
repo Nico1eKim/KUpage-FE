@@ -83,7 +83,7 @@ const useFileUploader = () => {
         throw new Error('프로젝트 지원 실패');
       }
 
-      return true;
+      return res.data.success;
     } catch (err) {
       throw Error('프로젝트 지원 실패:' + err);
     }
