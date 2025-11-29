@@ -43,39 +43,31 @@ const IdeaRegisterFileInput = ({ name, fileType, text, subText }: Props) => {
             setValue(name, file, { shouldValidate: true, shouldDirty: true });
           };
 
-          if (value && url) {
-            return fileType === 'image' ? (
-              <div className="w-full flex items-center justify-center rounded-[10px] bg-[#4f5e69] h-[501px]">
-                <img
-                  src={url}
-                  alt="imgFile"
-                  className="w-full flex items-center justify-center rounded-[10px] h-[501px] object-contain"
-                />
-              </div>
-            ) : (
-              <div className="w-full flex items-center justify-center rounded-[10px] bg-[#4f5e69] h-[501px]">
-                <label className="cursor-pointer flex flex-col items-center justify-center">
-                  <div className="flex flex-col items-center justify-center">
-                    <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
-                    <div className="mt-4 text-[#2f383f] text-[15px] text-600">{value?.name}</div>
-                  </div>
-                </label>
-              </div>
-            );
-          }
-
           return (
-            <div className="w-full flex items-center justify-center rounded-[10px] bg-[#4f5e69] h-[501px]">
-              <label className="cursor-pointer flex flex-col items-center justify-center">
-                {fileType === 'image' ? (
-                  <ImageIcon className="text-[#2f383f] w-[107px] h-[107px]" />
-                ) : (
-                  <div className="flex flex-col items-center justify-center">
-                    <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
-                    <div className="mt-4 text-[#2f383f] text-[15px] text-600">
-                      최대 50MB까지 업로드가 가능해요.
+            <div className="w-full flex items-center justify-center rounded-[10px] bg-[#4f5e69] h-[501px] overflow-hidden relative">
+              <label className="cursor-pointer flex flex-col items-center justify-center w-full h-full hover:bg-opacity-80 transition-opacity">
+                {value && url ? (
+                  fileType === 'image' ? (
+                    <img src={url} alt="imgFile" className="w-full h-full object-contain" />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center">
+                      <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
+                      <div className="mt-4 text-[#2f383f] text-[15px] text-600">{value?.name}</div>
                     </div>
-                  </div>
+                  )
+                ) : (
+                  <>
+                    {fileType === 'image' ? (
+                      <ImageIcon className="text-[#2f383f] w-[107px] h-[107px]" />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center">
+                        <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
+                        <div className="mt-4 text-[#2f383f] text-[15px] text-600">
+                          최대 50MB까지 업로드가 가능해요.
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
 
                 <input
