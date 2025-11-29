@@ -2,16 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LeaderIcon from '/Leader.svg';
 import ArrowDown from '../../assets/imgs/ArrowDown.svg';
-
-/**
- * todo: api와 연동
- */
-const isLogin: boolean = true;
+import useUserStore from '../../hooks/useUserStore';
 
 const LoginButton = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const { isLoggedIn, logout } = useUserStore();
 
   // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
@@ -31,9 +29,10 @@ const LoginButton = () => {
   }, [isDropdownOpen]);
 
   const handleLogout = () => {
-    // TODO: 로그아웃 로직 추가
-    console.log('로그아웃');
+    logout();
     setIsDropdownOpen(false);
+    navigate('/');
+    console.log('로그아웃 완료');
   };
 
   const handleMyPageClick = () => {
@@ -43,7 +42,7 @@ const LoginButton = () => {
 
   return (
     <div className="relative z-floating" ref={dropdownRef}>
-      {isLogin ? (
+      {isLoggedIn ? (
         <>
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}

@@ -1,7 +1,9 @@
 import useApi from './useApi';
+import useUserStore from './useUserStore';
 
 const useSignup = () => {
   const { api } = useApi();
+  const setIsLoggedIn = useUserStore((state) => state.setIsLoggedIn);
 
   const signup = async (form: {
     name: string;
@@ -39,6 +41,8 @@ const useSignup = () => {
 
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('refreshToken', refreshToken);
+
+    setIsLoggedIn(true);
 
     return response.data;
   };
