@@ -1,15 +1,42 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import LeaderIcon from '/Leader.svg';
+
 import ArrowDown from '../../assets/imgs/ArrowDown.svg';
 import useUserStore from '../../hooks/useUserStore';
+
+import LeaderIcon from '/Leader.svg';
+import TutorIcon from '/Tutor.svg';
+import MemberIcon from '/Member.svg';
+
+type Role = '파트장' | '튜터' | '멤버';
+
+const RoleIcon: Record<Role, string> = {
+  파트장: LeaderIcon,
+  튜터: TutorIcon,
+  멤버: MemberIcon,
+};
+
+const getRole = (auths: string[]): Role => {
+  const leaderRoles = ['파트장', '회장', '부장', '총무', '운영진'];
+  if (auths.some((auth) => leaderRoles.some((role) => auth.includes(role)))) {
+    return '파트장';
+  }
+  if (auths.some((auth) => auth.includes('튜터'))) {
+    return '튜터';
+  }
+  return '멤버';
+};
 
 const LoginButton = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const { isLoggedIn, logout } = useUserStore();
+  const { isLoggedIn, logout, auths } = useUserStore();
+
+  const role = getRole(auths);
+
+  console.log(role);
 
   // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
@@ -49,7 +76,7 @@ const LoginButton = () => {
             className="flex items-center justify-between w-[123px] h-[69px] gap-8 pr-12 pl-8 py-8 border border-border rounded-full cursor-pointer hover:bg-[#203636] transition-colors"
           >
             {/* todo: 임시로 파트장 프로필 이미지 사용 */}
-            <img src={LeaderIcon} alt="Profile" className="w-[55px] h-[55px] rounded-full" />
+            <img src={RoleIcon[role]} alt="Profile" className="w-[55px] h-[55px] rounded-full" />
             <img
               src={ArrowDown}
               alt="Toggle"

@@ -6,6 +6,7 @@ import App from './App.tsx';
 import './assets/fonts/font.css';
 import './index.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter } from 'react-router-dom';
 
 if (import.meta.env.MODE === 'development') {
   const { worker } = await import('./mocks/browser');

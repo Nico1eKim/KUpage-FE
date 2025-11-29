@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 
 import ArticleEdit from './pages/Article/ArticleEdit';
 import Articles from './pages/Article/Articles';
+import Building from './pages/Building/Building';
 import Creators from './pages/Creators/Creators';
 import ErrorPage from './pages/Global/ErrorPage';
 import Layout from './pages/Global/Layout';
@@ -20,7 +21,6 @@ import ApplyState from './pages/TeamMatching/ApplyState/ApplyState';
 import IdeaRegister from './pages/TeamMatching/IdeaRegister/IdeaRegister';
 import ProjectApply from './pages/TeamMatching/ProjectApply/ProjectApply';
 import TeamMatching from './pages/TeamMatching/TeamMatching';
-import Building from './pages/Building/Building';
 
 const Router = () => {
   const routes_children_auth = [
@@ -47,7 +47,12 @@ const Router = () => {
     { path: '/team-matching/register', element: <IdeaRegister />, hasHeader: true },
     { path: '/team-matching/apply', element: <ProjectApply />, hasHeader: true },
     { path: '/team-matching/apply-state', element: <ApplyState />, hasHeader: true },
-    { path: '/mypage', element: <MyPage />, hasHeader: true, hasFooter: true },
+    {
+      path: '/mypage',
+      element: <Navigate to="/building" replace />,
+      hasHeader: true,
+      hasFooter: true,
+    },
     { path: '/mypage/edit', element: <MyPageEdit />, hasHeader: true },
     { path: '/building', element: <Building />, hasHeader: true },
     { path: '/keyword', element: <Navigate to="/building" replace />, hasHeader: true },
