@@ -22,7 +22,7 @@ const StaffContent = ({ generation = 6 }: StaffContentProps) => {
 
   return (
     <div className="flex-center flex-col w-full">
-      <h2 className="text-white text-48 font-700">KUIT 5기 운영진</h2>
+      <h2 className="text-white text-48 font-700">KUIT 6기 운영진</h2>
       <p className="text-white text-24 font-500">카드를 클릭해 뒷면을 확인해보세요!</p>
       <div className="mt-44 flex-center gap-16">
         {positions.map((position) => (
