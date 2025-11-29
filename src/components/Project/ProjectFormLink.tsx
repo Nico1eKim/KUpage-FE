@@ -7,12 +7,15 @@ interface ProjectFormLinkProps {
   setLink: (value: string) => void;
 }
 
+/**
+ * TODO: `src/components/form/LinkField.tsx` 로 대체
+ */
 const ProjectFormLink = ({ link, setLink }: ProjectFormLinkProps) => {
   const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
 
   return (
     <div>
-      {link.length == 0 ? (
+      {!link ? (
         <div
           className="w-full h-108 flex justify-center items-center rounded-[10px] bg-deepGray cursor-pointer"
           onClick={() => setIsLinkModalOpen(true)}
