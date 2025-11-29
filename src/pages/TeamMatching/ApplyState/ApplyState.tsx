@@ -1,7 +1,7 @@
 import ApplyStateHeader from '../../../components/TeamMatching/ApplyState/ApplyStateHeader';
 import ApplyStateCard from '../../../components/TeamMatching/ApplyState/ApplyStateCard';
 import ApplyStateDetailContainer from '../../../components/TeamMatching/ApplyState/ApplyStateDetailContainer';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { APPLY_VIEW, ApplyStateResponse, ApplyView } from '../../../types/applyStateTypes';
 import { useQuery } from '@tanstack/react-query';
 import useApplyState from '../../../hooks/useApplyState';

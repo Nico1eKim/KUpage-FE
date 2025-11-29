@@ -10,6 +10,7 @@ interface Props {
 
 const ApplyStateCardInfo = ({ applyData }: Props) => {
   const { userType } = useContext(ApplyStateContext)!;
+
   return (
     <div
       className={clsx(

@@ -25,7 +25,6 @@ const DiscordCallback = () => {
           const accessToken = data.result.tokenResponse.accessToken;
           const role = data.result.role;
           localStorage.setItem('accessToken', accessToken);
-          localStorage.setItem('auth', role);
           useUserStore.getState().setauths(role);
           useUserStore.getState().setIsLoggedIn(true);
           navigate('/');
