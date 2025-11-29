@@ -9,7 +9,7 @@ export const handlers = [
     //   success: false,
     // });
     return HttpResponse.json({
-      code: 1000,
+      code: 6003,
       message: '요청에 성공하였습니다.',
       // result: [
       //   {

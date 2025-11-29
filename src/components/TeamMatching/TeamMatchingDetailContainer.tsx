@@ -5,8 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { TeamMatchingContext } from './TeamMatchingContext';
 import { Loader2 } from 'lucide-react';
+import useUserStore from '../../hooks/useUserStore';
+import { teamMatchingAuthExtractor } from '../../utils/authorization';
 
 const TeamMatchingDetailContainer = () => {
+  const auths = useUserStore((state) => state.auths);
+  const userType = teamMatchingAuthExtractor(auths);
   const navigate = useNavigate();
   const { selectedTeamData: projectData } = useContext(TeamMatchingContext)!;
 
@@ -30,9 +34,11 @@ const TeamMatchingDetailContainer = () => {
 
   return (
     <div className="w-full h-full flex flex-col justify-start gap-28">
-      <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
-        이 프로젝트 지원하기
-      </RoundedSquareButton>
+      {userType === 'general' && (
+        <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
+          이 프로젝트 지원하기
+        </RoundedSquareButton>
+      )}
 
       <section className="w-full flex flex-col items-start gap-12">
         <div className="font-600 text-[32px]">{projectData.serviceName}</div>

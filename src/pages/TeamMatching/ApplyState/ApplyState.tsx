@@ -43,6 +43,17 @@ const ApplyState = () => {
     );
   }
 
+  if (applyData?.code === 6003) {
+    return (
+      <div className="w-full h-full flex flex-col bg-gray">
+        <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
+        <div className="min-h-screen mt-8 p-88 bg-darkblue flex flex-col bg-gradient text-24 font-400">
+          매칭되지 않았습니다.
+        </div>
+      </div>
+    );
+  }
+
   return (
     <ApplyStateContext.Provider value={{ userType }}>
       <div className="w-full h-full flex flex-col bg-gray">
