@@ -52,7 +52,7 @@ const Router = () => {
     { path: '/building', element: <Building />, hasHeader: true },
     { path: '/keyword', element: <Navigate to="/building" replace />, hasHeader: true },
     ...routes_children_auth,
-    { path: '/*', element: <ErrorPage /> },
+    { path: '/*', element: <ErrorPage />, hasHeader: true, hasFooter: true },
   ];
 
   const routes = [

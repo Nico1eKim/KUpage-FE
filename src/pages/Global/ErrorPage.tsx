@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import GreenButton from '../../components/commons/GreenButton';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -8,46 +9,12 @@ const ErrorPage = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Oops! Something went wrong.</h1>
-      <p style={styles.message}>
-        The page you are looking for doesn't exist or an unexpected error has occurred.
-      </p>
-      <button style={styles.button} onClick={handleGoHome}>
-        Go to Home
-      </button>
+    <div className="w-full h-[calc(100vh-141px)] text-white flex-center flex-col bg-gradient">
+      <h1 className="font-700 text-48">존재하지 않는 화면이에요!</h1>
+      <p className="text-24 pt-32 pb-60">홈으로 돌아가세요</p>
+      <GreenButton text="홈으로 돌아가기 ->" isBig onClick={handleGoHome} />
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    textAlign: 'center' as const,
-    backgroundColor: '#f8f9fa',
-    color: '#343a40',
-  },
-  title: {
-    fontSize: '2rem',
-    marginBottom: '1rem',
-  },
-  message: {
-    fontSize: '1rem',
-    marginBottom: '2rem',
-  },
-  button: {
-    padding: '0.5rem 1rem',
-    fontSize: '1rem',
-    color: '#fff',
-    backgroundColor: '#007bff',
-    border: 'none',
-    borderRadius: '0.25rem',
-    cursor: 'pointer',
-  },
 };
 
 export default ErrorPage;
