@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import KUITLogo from '../../assets/imgs/KUITLogo.svg';
 import LoginButton from './LoginButton';
 
@@ -22,9 +22,17 @@ const NavLinkItem = ({ to, children }: NavLinkItemProps) => {
   );
 };
 
-const Header = () => {
+interface HeaderProps {
+  isMovable?: boolean;
+}
+
+const Header = ({ isMovable = false }: HeaderProps) => {
   return (
-    <header className="w-full h-[141px] fixed top-0 z-floating flex items-center justify-between px-40 bg-gray">
+    <header
+      className={`w-full h-[141px] flex items-center justify-between px-40 bg-gray z-floating transition-all duration-300
+        ${isMovable ? 'relative' : 'fixed top-0'} 
+      `}
+    >
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-[58px]">
           <div className="flex gap-[58px] items-center">
