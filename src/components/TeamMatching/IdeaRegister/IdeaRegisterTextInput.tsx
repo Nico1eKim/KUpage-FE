@@ -28,9 +28,10 @@ const IdeaRegisterTextInput = ({ name, label, textAreaHeight }: Props) => {
           className={styles.input}
           style={{ height: textAreaHeight + 'px' }}
           placeholder="내용을 입력해주세요."
+          maxLength={TEXT_LIMITATION}
           {...register(name)}
         ></textarea>
-        <span className={clsx('absolute bottom-[10px] right-[10px] text-border')}>
+        <span className={clsx('absolute bottom-24 right-24 text-[#D8D8D8]')}>
           {length}/{TEXT_LIMITATION}
         </span>
       </div>
