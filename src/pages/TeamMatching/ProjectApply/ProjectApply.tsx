@@ -6,24 +6,42 @@ import {
   ProjectApplySchema,
   projectApplySchema,
 } from '../../../components/TeamMatching/ProjectApply/schema/projectApplySchema';
+import { useLocation } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
+import { TeamInfo } from '../../../types/teamMatchingApiTypes';
+
+interface LocationState {
+  teamData?: TeamInfo;
+}
 
 const ProjectApply = () => {
+  const location = useLocation();
+  const state = location.state as LocationState | null;
+  const teamData = state?.teamData;
+
   const methods = useForm<ProjectApplySchema>({
     resolver: zodResolver(projectApplySchema),
     defaultValues: {
       motivation: '',
-      appliedPart: [],
+      appliedPart: undefined,
       portfolioUrl: undefined,
     },
     mode: 'onSubmit',
     shouldFocusError: false,
   });
 
+  if (!teamData)
+    return (
+      <div className="w-full min-h-screen flex-center">
+        <Loader2 className="w-20 h-20 animate-spin text-main" />
+      </div>
+    );
+
   return (
     <FormProvider {...methods}>
       <form noValidate className="min-h-screen bg-gradient">
-        <ProjectApplyHeader />
-        <ProjectApplyBody />
+        <ProjectApplyHeader teamId={teamData.teamId} />
+        <ProjectApplyBody teamData={teamData} />
       </form>
     </FormProvider>
   );

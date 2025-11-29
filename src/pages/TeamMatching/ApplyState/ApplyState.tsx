@@ -1,17 +1,21 @@
 import ApplyStateHeader from '../../../components/TeamMatching/ApplyState/ApplyStateHeader';
 import ApplyStateCard from '../../../components/TeamMatching/ApplyState/ApplyStateCard';
 import ApplyStateDetailContainer from '../../../components/TeamMatching/ApplyState/ApplyStateDetailContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { APPLY_VIEW, ApplyStateResponse, ApplyView } from '../../../types/applyStateTypes';
 import { useQuery } from '@tanstack/react-query';
 import useApplyState from '../../../hooks/useApplyState';
-
-export const userType: string = 'general';
+import useUserStore from '../../../hooks/useUserStore';
+import { teamMatchingAuthExtractor } from '../../../utils/authorization';
+import { ApplyStateContext } from '../../../components/TeamMatching/ApplyState/ApplyStateContext';
 
 const ApplyState = () => {
   const [viewType, setViewType] = useState<ApplyView>(APPLY_VIEW.List);
   const [selectedTeamId, setSelectedTeamId] = useState<number | null>(null);
   const { getApplyStateData, getApplicantStateData } = useApplyState();
+  const auths = useUserStore((state) => state.auths);
+  const userType = teamMatchingAuthExtractor(auths);
+
   const {
     isPending,
     isError,
@@ -29,47 +33,49 @@ const ApplyState = () => {
   });
 
   return (
-    <div className="w-full h-full flex flex-col bg-gray">
-      <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
-      {viewType === APPLY_VIEW.List ? (
-        applyData?.success ? (
-          <div className="flex-1 mt-8 p-48 bg-darkblue flex flex-col gap-20 bg-gradient">
-            <>
-              {userType === 'admin' &&
-                Array.isArray(applyData) &&
-                applyData.map((team) => (
+    <ApplyStateContext.Provider value={{ userType }}>
+      <div className="w-full h-full flex flex-col bg-gray">
+        <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
+        {viewType === APPLY_VIEW.List ? (
+          applyData?.success ? (
+            <div className="flex-1 mt-8 p-48 bg-darkblue flex flex-col gap-20 bg-gradient">
+              <>
+                {userType === 'admin' &&
+                  Array.isArray(applyData.result) &&
+                  applyData.result.map((team) => (
+                    <ApplyStateCard
+                      key={team.teamId}
+                      applyData={team}
+                      setViewType={setViewType}
+                      setSelectedTeamId={setSelectedTeamId}
+                    />
+                  ))}
+                {userType === 'pm' && applyData && !Array.isArray(applyData) && (
                   <ApplyStateCard
-                    key={team.teamId}
-                    applyData={team}
+                    applyData={applyData.result as ApplyStateResponse}
                     setViewType={setViewType}
                     setSelectedTeamId={setSelectedTeamId}
                   />
-                ))}
-              {userType === 'pm' && applyData && !Array.isArray(applyData) && (
-                <ApplyStateCard
-                  applyData={applyData.result as ApplyStateResponse}
-                  setViewType={setViewType}
-                  setSelectedTeamId={setSelectedTeamId}
-                />
-              )}
-              {userType === 'general' && applyData && !Array.isArray(applyData) && (
-                <ApplyStateCard
-                  applyData={applyData.result as ApplyStateResponse}
-                  setViewType={setViewType}
-                  setSelectedTeamId={setSelectedTeamId}
-                />
-              )}
-            </>
-          </div>
+                )}
+                {userType === 'general' && applyData && !Array.isArray(applyData) && (
+                  <ApplyStateCard
+                    applyData={applyData.result as ApplyStateResponse}
+                    setViewType={setViewType}
+                    setSelectedTeamId={setSelectedTeamId}
+                  />
+                )}
+              </>
+            </div>
+          ) : (
+            <div className="flex-1 mt-8 p-92 bg-darkblue flex flex-col gap-20 text-24 font-400 bg-gradient">
+              {applyData?.message}
+            </div>
+          )
         ) : (
-          <div className="flex-1 mt-8 p-92 bg-darkblue flex flex-col gap-20 text-24 font-400 bg-gradient">
-            {applyData?.message}
-          </div>
-        )
-      ) : (
-        applicantData && <ApplyStateDetailContainer applicantData={applicantData} />
-      )}
-    </div>
+          applicantData && <ApplyStateDetailContainer applicantData={applicantData} />
+        )}
+      </div>
+    </ApplyStateContext.Provider>
   );
 };
 

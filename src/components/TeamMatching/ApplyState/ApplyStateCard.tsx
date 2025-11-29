@@ -1,14 +1,14 @@
 import clsx from 'clsx';
-import type { Dispatch, SetStateAction } from 'react';
+import { useContext, useEffect, type Dispatch, type SetStateAction } from 'react';
 import {
   applicantPart,
   APPLY_VIEW,
   ApplyStateResponse,
   ApplyView,
 } from '../../../types/applyStateTypes';
-import { userType } from '../../../pages/TeamMatching/ApplyState/ApplyState';
 import ApplyStateCardCounts from './ApplyStateCardCounts';
 import ApplyStateCardInfo from './ApplyStateCardInfo';
+import { ApplyStateContext } from './ApplyStateContext';
 
 interface Props {
   applyData: ApplyStateResponse;
@@ -17,6 +17,8 @@ interface Props {
 }
 
 const ApplyStateCard = ({ applyData, setViewType, setSelectedTeamId }: Props) => {
+  const { userType } = useContext(ApplyStateContext)!;
+
   const clickHandler = () => {
     setViewType(APPLY_VIEW.Detail);
     setSelectedTeamId(applyData.teamId);

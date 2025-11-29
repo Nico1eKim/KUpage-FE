@@ -2,31 +2,18 @@ export const PART_TYPE = [
   {
     id: 0,
     name: 'Web',
-    value: 'WEB',
+    value: 'Web',
   },
   {
     id: 1,
     name: 'Server',
-    value: 'SERVER',
+    value: 'Server',
   },
   {
     id: 2,
     name: 'Android',
-    value: 'ANDROID',
+    value: 'Android',
   },
-  {
-    id: 3,
-    name: 'iOS',
-    value: 'IOS',
-  },
-  {
-    id: 4,
-    name: 'Pm',
-    value: 'PM',
-  },
-  {
-    id: 5,
-    name: 'Design',
-    value: 'DESIGN',
-  },
-];
+] as const;
+
+export type partTypeValue = (typeof PART_TYPE)[number]['value'];

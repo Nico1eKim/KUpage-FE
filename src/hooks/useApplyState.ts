@@ -21,7 +21,7 @@ const useApplyState = () => {
 
   const getApplicantStateData = (teamId: number): Promise<ApplicantStateResponse | undefined> => {
     return api
-      .get<ApiResponse<ApplicantStateResponse>>(`/teams/${teamId}/applicants`)
+      .get<ApiResponse<ApplicantStateResponse>>(`/teams/${teamId}/applications`)
       .then((res) => {
         const data = res.data;
         if (data.success) return data.result;

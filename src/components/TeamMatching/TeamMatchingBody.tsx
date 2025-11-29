@@ -1,21 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
-import useTeamMatching from '../../hooks/useTeamMatching';
 import TeamCard from './TeamCard';
 import TeamMatchingDetailContainer from './TeamMatchingDetailContainer';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect } from 'react';
+import { TeamMatchingContext } from './TeamMatchingContext';
+import { Loader2 } from 'lucide-react';
 
-const TeamMatchingBody = () => {
-  const getTeamDatas = useTeamMatching();
-  const {
-    isEnabled,
-    isError,
-    isLoading,
-    data: teamData,
-  } = useQuery({
-    queryKey: ['team-datas'],
-    queryFn: () => getTeamDatas(),
-  });
-  const [selectedTeamId, setSelectedTeamId] = useState<number | undefined>();
+interface Props {
+  selectedTeamId: number | undefined;
+  setSelectedTeamId: Dispatch<SetStateAction<number | undefined>>;
+}
+
+const TeamMatchingBody = ({ selectedTeamId, setSelectedTeamId }: Props) => {
+  const { query } = useContext(TeamMatchingContext)!;
+
+  const { data: teamData, isError, isEnabled, isLoading } = query;
 
   useEffect(() => {
     if (teamData?.success) {
@@ -23,11 +20,17 @@ const TeamMatchingBody = () => {
     }
   }, [teamData]);
 
-  const selectedData = teamData?.result?.teams.find((data) => data.teamId === selectedTeamId);
-
   const cardClickHandler = (teamId: number) => {
     setSelectedTeamId(teamId);
   };
+
+  if (isLoading) {
+    return (
+      <div className="w-full min-h-screen flex-center">
+        <Loader2 className="w-20 h-20 animate-spin text-main" />
+      </div>
+    );
+  }
 
   if (isError) {
     return (
@@ -54,7 +57,7 @@ const TeamMatchingBody = () => {
             })}
           </div>
           <div className="w-[60%] h-full p-[47px]">
-            {selectedData && <TeamMatchingDetailContainer projectData={selectedData} />}
+            <TeamMatchingDetailContainer />
           </div>
         </>
       )}
