@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import RoundedSquareButton from '../commons/RoundedSquareButton';
+import useUserStore from '../../hooks/useUserStore';
+import { teamMatchingAuthExtractor } from '../../utils/authorization';
 
 const TeamMatchingHeader = () => {
+  const auths = useUserStore((state) => state.auths);
+  const userType = teamMatchingAuthExtractor(auths);
   const navigate = useNavigate();
 
   const clickRegisterBtnHandler = () => {
@@ -21,9 +25,11 @@ const TeamMatchingHeader = () => {
         </h3>
       </div>
       <div className="w-[30%] flex flex-row justify-end">
-        <RoundedSquareButton onClick={clickRegisterBtnHandler}>
-          아이디어 등록하기
-        </RoundedSquareButton>
+        {userType === 'pm' && (
+          <RoundedSquareButton onClick={clickRegisterBtnHandler}>
+            아이디어 등록하기
+          </RoundedSquareButton>
+        )}
       </div>
       <div
         className="absolute bottom-[10px] right-[10px] font-[700] text-[24px] cursor-pointer"

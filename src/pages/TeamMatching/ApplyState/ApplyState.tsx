@@ -8,6 +8,7 @@ import useApplyState from '../../../hooks/useApplyState';
 import useUserStore from '../../../hooks/useUserStore';
 import { teamMatchingAuthExtractor } from '../../../utils/authorization';
 import { ApplyStateContext } from '../../../components/TeamMatching/ApplyState/ApplyStateContext';
+import { Loader2 } from 'lucide-react';
 
 const ApplyState = () => {
   const [viewType, setViewType] = useState<ApplyView>(APPLY_VIEW.List);
@@ -17,7 +18,7 @@ const ApplyState = () => {
   const userType = teamMatchingAuthExtractor(auths);
 
   const {
-    isPending,
+    isLoading: isApplyLoading,
     isError,
     data: applyData,
     error,
@@ -26,11 +27,21 @@ const ApplyState = () => {
     queryFn: () => getApplyStateData(),
   });
 
-  const { data: applicantData } = useQuery({
+  const { isLoading: isApplicantLoading, data: applicantData } = useQuery({
     queryKey: ['applicant-state', selectedTeamId],
     queryFn: () => getApplicantStateData(selectedTeamId!),
     enabled: viewType === APPLY_VIEW.Detail && selectedTeamId !== null,
   });
+
+  if (isApplyLoading || isApplicantLoading) {
+    return (
+      <div className="w-full h-full flex flex-col bg-gray">
+        <div className="w-full min-h-screen flex-center">
+          <Loader2 className="w-20 h-20 animate-spin text-main" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ApplyStateContext.Provider value={{ userType }}>
