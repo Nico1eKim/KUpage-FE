@@ -26,12 +26,12 @@ const IdeaRegisterHeader = () => {
   );
 
   return (
-    <div className="w-full h-[207px] flex flex-row justify-between items-center bg-darkblue sticky top-0 z-[999]">
-      <h1 className="text-[32px] md:text-[64px] font-700">아이디어 등록하기</h1>
+    <section className="sticky top-0 z-popup flex justify-between items-center w-full pt-80 pb-32 bg-darkblue">
+      <h1 className="text-64 font-700 text-white">아이디어 등록하기</h1>
       <RoundedSquareButton disabled={isSubmitting} onClick={onSubmit}>
         완료하기
       </RoundedSquareButton>
-    </div>
+    </section>
   );
 };
 
