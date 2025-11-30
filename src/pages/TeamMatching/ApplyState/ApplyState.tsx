@@ -66,14 +66,14 @@ const ApplyState = () => {
                       setSelectedTeamId={setSelectedTeamId}
                     />
                   ))}
-                {userType === 'pm' && applyData && !Array.isArray(applyData) && (
+                {userType === 'pm' && applyData && !Array.isArray(applyData.result) && (
                   <ApplyStateCard
                     applyData={applyData.result as ApplyStateResponse}
                     setViewType={setViewType}
                     setSelectedTeamId={setSelectedTeamId}
                   />
                 )}
-                {userType === 'general' && applyData && !Array.isArray(applyData) && (
+                {userType === 'general' && applyData && !Array.isArray(applyData.result) && (
                   <ApplyStateCard
                     applyData={applyData.result as ApplyStateResponse}
                     setViewType={setViewType}
