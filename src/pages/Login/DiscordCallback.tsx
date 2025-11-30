@@ -32,7 +32,7 @@ const DiscordCallback = () => {
           console.log(data.code);
           navigate('/');
         } else {
-          localStorage.setItem('guestToken', data.result.guestToken);
+          localStorage.setItem('guestToken', data.result.tokenResponse.guestToken);
           console.log(data.code);
           navigate('/signup');
         }
