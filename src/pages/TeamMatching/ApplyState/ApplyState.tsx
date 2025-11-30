@@ -33,11 +33,6 @@ const ApplyState = () => {
     enabled: viewType === APPLY_VIEW.Detail && selectedTeamId !== null,
   });
 
-  useEffect(() => {
-    console.log('applyData:', applyData);
-    console.log('applicantData:', applicantData);
-  }, [applyData, applicantData]);
-
   if (isApplyLoading || isApplicantLoading) {
     return (
       <div className="w-full h-full flex flex-col bg-gray">

@@ -57,7 +57,7 @@ const TeamMatchingBody = ({ selectedTeamId, setSelectedTeamId }: Props) => {
             })}
           </div>
           <div className="w-[60%] h-full p-[47px]">
-            <TeamMatchingDetailContainer />
+            <TeamMatchingDetailContainer key={selectedTeamId} />
           </div>
         </>
       )}
