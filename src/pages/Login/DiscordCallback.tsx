@@ -20,6 +20,8 @@ const DiscordCallback = () => {
       try {
         const response = await api.get(`/oauth2/code/discord?code=${code}`, { skipAuth: true });
         const data = response.data;
+        console.log('response:', response);
+        console.log('data:', data);
 
         if (data.code === 1000) {
           const accessToken = data.result.tokenResponse.accessToken;
