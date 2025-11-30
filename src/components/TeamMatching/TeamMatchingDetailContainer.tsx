@@ -34,7 +34,7 @@ const TeamMatchingDetailContainer = () => {
 
   return (
     <div className="w-full h-full flex flex-col justify-start gap-28">
-      {userType === 'general' && (
+      {userType !== 'pm' && (
         <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
           이 프로젝트 지원하기
         </RoundedSquareButton>
