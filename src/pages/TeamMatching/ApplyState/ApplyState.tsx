@@ -1,7 +1,7 @@
 import ApplyStateHeader from '../../../components/TeamMatching/ApplyState/ApplyStateHeader';
 import ApplyStateCard from '../../../components/TeamMatching/ApplyState/ApplyStateCard';
 import ApplyStateDetailContainer from '../../../components/TeamMatching/ApplyState/ApplyStateDetailContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { APPLY_VIEW, ApplyStateResponse, ApplyView } from '../../../types/applyStateTypes';
 import { useQuery } from '@tanstack/react-query';
 import useApplyState from '../../../hooks/useApplyState';
@@ -32,6 +32,11 @@ const ApplyState = () => {
     queryFn: () => getApplicantStateData(selectedTeamId!),
     enabled: viewType === APPLY_VIEW.Detail && selectedTeamId !== null,
   });
+
+  useEffect(() => {
+    console.log('applyData:', applyData);
+    console.log('applicantData:', applicantData);
+  }, [applyData, applicantData]);
 
   if (isApplyLoading || isApplicantLoading) {
     return (
