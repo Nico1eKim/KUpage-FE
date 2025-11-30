@@ -20,11 +20,11 @@ const DiscordCallback = () => {
       try {
         const response = await api.get(`/oauth2/code/discord?code=${code}`, { skipAuth: true });
         const data = response.data;
+        const accessToken = data.result.tokenResponse.accessToken;
         console.log('response:', response);
         console.log('data:', data);
 
-        if (data.result.role !== 'GUEST') {
-          const accessToken = data.result.tokenResponse.accessToken;
+        if (accessToken) {
           const role = data.result.role;
           localStorage.setItem('accessToken', accessToken);
           useUserStore.getState().setauths(role);
