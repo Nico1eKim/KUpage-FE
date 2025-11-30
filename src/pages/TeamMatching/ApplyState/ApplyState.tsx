@@ -83,7 +83,7 @@ const ApplyState = () => {
               </>
             </div>
           ) : (
-            <div className="flex-1 mt-8 p-92 bg-darkblue flex flex-col gap-20 text-24 font-400 bg-gradient">
+            <div className="min-h-screen mt-8 p-92 bg-darkblue flex flex-col gap-20 text-24 font-400 bg-gradient">
               {applyData?.message}
             </div>
           )
