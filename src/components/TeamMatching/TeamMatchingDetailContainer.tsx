@@ -12,7 +12,7 @@ const TeamMatchingDetailContainer = () => {
   const auths = useUserStore((state) => state.auths);
   const userType = teamMatchingAuthExtractor(auths);
   const navigate = useNavigate();
-  const { selectedTeamData: projectData, isApply } = useContext(TeamMatchingContext)!;
+  const { query, selectedTeamData: projectData, isApply } = useContext(TeamMatchingContext)!;
 
   const applyBtnClickHandler = () => {
     if (projectData) {
@@ -24,12 +24,16 @@ const TeamMatchingDetailContainer = () => {
     }
   };
 
-  if (!projectData) {
+  if (query.isLoading) {
     return (
       <div className="w-full min-h-screen flex-center">
         <Loader2 className="w-20 h-20 animate-spin text-main" />
       </div>
     );
+  }
+
+  if (!projectData) {
+    return null;
   }
 
   return (
