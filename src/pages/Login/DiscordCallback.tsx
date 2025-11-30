@@ -23,15 +23,17 @@ const DiscordCallback = () => {
         console.log('response:', response);
         console.log('data:', data);
 
-        if (data.code === 1000) {
+        if (data.result.role !== 'GUEST') {
           const accessToken = data.result.tokenResponse.accessToken;
           const role = data.result.role;
           localStorage.setItem('accessToken', accessToken);
           useUserStore.getState().setauths(role);
           useUserStore.getState().setIsLoggedIn(true);
+          console.log(data.code);
           navigate('/');
-        } else if (data.code === 2000) {
+        } else {
           localStorage.setItem('guestToken', data.result.guestToken);
+          console.log(data.code);
           navigate('/signup');
         }
       } catch (err) {
