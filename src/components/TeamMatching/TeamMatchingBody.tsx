@@ -16,7 +16,7 @@ const TeamMatchingBody = ({ selectedTeamId, setSelectedTeamId }: Props) => {
 
   useEffect(() => {
     if (teamData?.success) {
-      setSelectedTeamId(teamData.result.teams[0].teamId);
+      setSelectedTeamId(teamData.result.teams[0]?.teamId);
     }
   }, [teamData]);
 
