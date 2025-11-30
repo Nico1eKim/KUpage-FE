@@ -12,6 +12,7 @@ const useApplyState = () => {
       .get<ApiResponse<ApplyStateResponse | ApplyStateResponse[]>>('/teams/applications')
       .then((res) => {
         const data = res.data;
+        console.log(data);
         return data;
       })
       .catch((err) => {
