@@ -16,7 +16,9 @@ const TeamMatching = () => {
   });
   const [selectedTeamId, setSelectedTeamId] = useState<number | undefined>();
 
-  const selectedTeamData = query.data?.result?.teams.find((data) => data.teamId === selectedTeamId);
+  const selectedTeamData = query.data?.result?.teams.find(
+    (data) => data?.teamId === selectedTeamId
+  );
 
   if (query.isError) {
     const status = (query.error as any).response?.status;
