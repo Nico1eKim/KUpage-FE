@@ -20,18 +20,20 @@ const DiscordCallback = () => {
       try {
         const response = await api.get(`/oauth2/code/discord?code=${code}`, { skipAuth: true });
         const data = response.data;
+        const accessToken = data.result.tokenResponse.accessToken;
         console.log('response:', response);
         console.log('data:', data);
 
-        if (data.code === 1000) {
-          const accessToken = data.result.tokenResponse.accessToken;
+        if (accessToken) {
           const role = data.result.role;
           localStorage.setItem('accessToken', accessToken);
           useUserStore.getState().setauths(role);
           useUserStore.getState().setIsLoggedIn(true);
+          console.log(data.code);
           navigate('/');
-        } else if (data.code === 2000) {
+        } else {
           localStorage.setItem('guestToken', data.result.guestToken);
+          console.log(data.code);
           navigate('/signup');
         }
       } catch (err) {
