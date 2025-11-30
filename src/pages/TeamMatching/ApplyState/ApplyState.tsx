@@ -43,6 +43,28 @@ const ApplyState = () => {
     );
   }
 
+  if (applyData?.code === 6001) {
+    return (
+      <div className="w-full h-full flex flex-col bg-gray">
+        <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
+        <div className="min-h-screen mt-8 p-88 bg-darkblue flex flex-col bg-gradient text-24 font-400">
+          소유하는 팀이 존재하지 않습니다.
+        </div>
+      </div>
+    );
+  }
+
+  if (applyData?.code === 6002) {
+    return (
+      <div className="w-full h-full flex flex-col bg-gray">
+        <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
+        <div className="min-h-screen mt-8 p-88 bg-darkblue flex flex-col bg-gradient text-24 font-400">
+          지원한 팀이 존재하지 않습니다.
+        </div>
+      </div>
+    );
+  }
+
   if (applyData?.code === 6003) {
     return (
       <div className="w-full h-full flex flex-col bg-gray">
