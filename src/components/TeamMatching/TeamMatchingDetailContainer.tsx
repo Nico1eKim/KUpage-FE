@@ -33,7 +33,7 @@ const TeamMatchingDetailContainer = () => {
   }
 
   if (!projectData) {
-    return null;
+    return <div className="w-full min-h-screen flex-center"></div>;
   }
 
   return (
