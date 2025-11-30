@@ -7,6 +7,7 @@ interface TeamMatchingContextValue {
   query: UseQueryResult<ApiResponse<TeamsResponse>, Error>;
   selectedTeamId: number | undefined;
   selectedTeamData: TeamInfo | undefined;
+  isApply: boolean | undefined;
 }
 
 export const TeamMatchingContext = createContext<TeamMatchingContextValue | null>(null);

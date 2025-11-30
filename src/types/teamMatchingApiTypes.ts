@@ -12,4 +12,5 @@ export interface TeamInfo {
 
 export interface TeamsResponse {
   teams: TeamInfo[];
+  canApply: boolean;
 }
