@@ -20,8 +20,10 @@ const ApplyStateCard = ({ applyData, setViewType, setSelectedTeamId }: Props) =>
   const { userType } = useContext(ApplyStateContext)!;
 
   const clickHandler = () => {
-    setViewType(APPLY_VIEW.Detail);
-    setSelectedTeamId(applyData.teamId);
+    if (userType !== 'general') {
+      setViewType(APPLY_VIEW.Detail);
+      setSelectedTeamId(applyData.teamId);
+    }
   };
 
   function pick<T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> {

@@ -60,7 +60,7 @@ const ApplyState = () => {
         <ApplyStateHeader viewType={viewType} setViewType={setViewType} />
         {viewType === APPLY_VIEW.List ? (
           applyData?.success ? (
-            <div className="flex-1 mt-8 p-48 bg-darkblue flex flex-col gap-20 bg-gradient">
+            <div className="min-h-screen mt-8 p-48 bg-darkblue flex flex-col gap-20 bg-gradient">
               <>
                 {userType === 'admin' &&
                   Array.isArray(applyData.result) &&

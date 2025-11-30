@@ -42,7 +42,7 @@ const DiscordCallback = () => {
     fetchToken();
   }, [code, api, navigate]);
 
-  return <div>로그인 처리 중입니다...</div>;
+  return <div className="mt-32 text-24 font-700">로그인 처리 중입니다...</div>;
 };
 
 export default DiscordCallback;
