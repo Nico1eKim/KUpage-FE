@@ -33,9 +33,6 @@ const IdeaRegisterBody = () => {
       <div className="w-full flex flex-col gap-[10px]">
         <div className="w-full flex flex-col text-left font-600 text-32px">
           <span className={styles.text}>서비스의 앱 유형을 선택해주세요.</span>
-          <span className={styles.subtext}>
-            * 해당하는 카테고리를 모두 선택해주세요. (최대 3개)
-          </span>
         </div>
         <div className="w-full flex flex-row gap-[10px]">
           {APPLICATION_TYPE.map((appType) => (

@@ -5,7 +5,9 @@ export const projectApplySchema = z.object({
     .string()
     .min(1, { message: '1자 이상 입력해주세요' })
     .max(1000, { message: '1000자 이하로 입력해주세요' }),
-  appliedPart: z.enum(['Server', 'Web', 'Android']),
+  appliedPart: z.enum(['Server', 'Web', 'Android']).refine((v) => v !== undefined, {
+    message: '지원 파트를 선택해주세요.',
+  }),
   portfolioUrl: z
     .instanceof(File, { message: 'pdf 파일을 업로드해주세요.' })
     .refine((f) => f.type === 'application/pdf', 'PDF 파일만 업로드할 수 있습니다.')

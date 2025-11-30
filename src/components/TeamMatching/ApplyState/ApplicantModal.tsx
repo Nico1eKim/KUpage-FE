@@ -23,9 +23,19 @@ const ApplicantModal = ({ onClose, applicantData }: Props) => {
 
         <div className="w-full flex flex-col items-start gap-24">
           <h3 className="text-24 font-600">포트폴리오</h3>
-          <div className="w-full h-60 rounded-10 bg-border flex items-center justify-start px-20 py-16 text-24 font-700">
-            {applicantData.applicantDetail.portfolioUrl}
-          </div>
+          <input
+            type="text"
+            value={applicantData.applicantDetail.portfolioUrl}
+            readOnly
+            onClick={() => window.open(applicantData.applicantDetail.portfolioUrl, '_blank')}
+            className="
+      w-full h-60 rounded-10 bg-border 
+      px-20 py-16 text-24 font-700
+      overflow-x-auto whitespace-nowrap
+      cursor-pointer
+      focus:outline-none
+    "
+          />
         </div>
 
         <div className="w-full flex flex-col items-start gap-24">
