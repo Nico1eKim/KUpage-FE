@@ -23,7 +23,7 @@ const ApplyStateCardInfo = ({ applyData }: Props) => {
       <h3 className="text-24 font-700">{applyData.topicSummary}</h3>
       <div className="flex flex-row items-center justify-between">
         <span className="text-24 font-500">{applyData.nameAndPart}</span>
-        <TextBadge text={applyData.part as string} className="group-hover:border-darkblue" />
+        <TextBadge text={applyData.appType as string} className="group-hover:border-darkblue" />
       </div>
     </div>
   );

@@ -1,9 +1,13 @@
+import { ApplicationTypeValue } from '../constants/IdeaRegister/applicationType.constants';
+
 // 지원 현황
 export interface ApplyStateResponse {
   teamId: number;
   serviceName: string;
   nameAndPart?: string;
+  ownerNameAndPart?: string;
   part?: string;
+  appType?: ApplicationTypeValue;
   topicSummary: string;
   androidApplicantNum?: number;
   iosApplicantNum?: number;
