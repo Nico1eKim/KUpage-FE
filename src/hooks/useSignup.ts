@@ -35,6 +35,7 @@ const useSignup = () => {
       headers: {
         Authorization: `Bearer ${guestToken}`,
       },
+      skipAuth: true,
     });
 
     const { accessToken, refreshToken } = response.data.result;
