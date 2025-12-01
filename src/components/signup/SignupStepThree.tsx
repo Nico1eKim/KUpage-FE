@@ -17,11 +17,13 @@ const SignupStepThree = ({ form, updateForm }: SignupStepThreeProps) => {
 
   useEffect(() => {
     if (selectedDate) {
-      const formatted = selectedDate.toISOString().split('T')[0];
+      const offset = selectedDate.getTimezoneOffset() * 60000;
+      const dateOffset = new Date(selectedDate.getTime() - offset);
+      const formatted = dateOffset.toISOString().split('T')[0];
+
       updateForm('birth', formatted);
     }
   }, [selectedDate]);
-
   return (
     <div className="flex flex-wrap gap-24">
       <div className="w-[calc(50%-12px)]">
