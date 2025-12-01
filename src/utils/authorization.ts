@@ -1,13 +1,7 @@
 import { Auth, AUTH } from '../constants/authName';
 
 export const teamMatchingAuthExtractor = (roles: string[]): string => {
-  const adminKeywords = [
-    AUTH.PRESIDENT,
-    AUTH.VICE_PRESIDENT,
-    AUTH.PART_LEAD,
-    AUTH.ACCOUNTANT,
-    AUTH.TUTOR,
-  ];
+  const adminKeywords = [AUTH.PRESIDENT, AUTH.VICE_PRESIDENT, AUTH.PART_LEAD, AUTH.ACCOUNTANT];
 
   const isAdmin = roles.some((role) => {
     const parts = role.split(' ');
