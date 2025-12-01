@@ -34,12 +34,12 @@ const ProjectApplyHeader = ({ teamId }: { teamId: number }) => {
   return (
     <div className="flex flex-col gap-36 p-48">
       <div className="flex flex-row justify-between items-center">
-        <h1>Completion of application</h1>
+        <h1 className="text-64 font-700">Completion of application</h1>
         <RoundedSquareButton disabled={isSubmitting} onClick={onSubmit}>
           최종 제출하기
         </RoundedSquareButton>
       </div>
-      <pre className="whitespace-pre-wrap font-sans text-[16px] leading-relaxed text-left">
+      <pre className="whitespace-pre-wrap font-sans text-24 leading-[35px] text-left">
         {notification}
       </pre>
     </div>

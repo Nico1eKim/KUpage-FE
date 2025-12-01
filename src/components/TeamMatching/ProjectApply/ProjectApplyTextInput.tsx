@@ -21,8 +21,9 @@ const IdeaRegisterTextInput = () => {
       <div className="relative">
         <textarea
           className={styles.input}
+          maxLength={TEXT_LIMITATION}
           style={{ height: '397px' }}
-          placeholder="내용을 입력해주세요."
+          placeholder="자기소개를 입력해주세요."
           {...register(name)}
         ></textarea>
         <span className={clsx('absolute bottom-[10px] right-[10px] text-border')}>
