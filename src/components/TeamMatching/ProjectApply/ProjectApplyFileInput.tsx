@@ -16,7 +16,7 @@ const ProjectApplyFileInput = () => {
     <div className="w-full flex flex-col gap-[10px]">
       <div className="w-full flex flex-col text-left font-600 text-32px">
         <span className={styles.text}>
-          포트폴리오 링크를 입력해주세요. <span className="text-[#d5da40]">*</span>
+          포트폴리오 파일을 업로드 해주세요. <span className="text-[#d5da40]">*</span>
         </span>
       </div>
 

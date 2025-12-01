@@ -6,11 +6,12 @@ import { useContext } from 'react';
 import { TeamMatchingContext } from './TeamMatchingContext';
 import { Loader2 } from 'lucide-react';
 import useUserStore from '../../hooks/useUserStore';
-import { teamMatchingAuthExtractor } from '../../utils/authorization';
+import { partExtractor, teamMatchingAuthExtractor } from '../../utils/authorization';
 
 const TeamMatchingDetailContainer = () => {
   const auths = useUserStore((state) => state.auths);
   const userType = teamMatchingAuthExtractor(auths);
+  const userPart = partExtractor(auths);
   const navigate = useNavigate();
   const { query, selectedTeamData: projectData, canApply } = useContext(TeamMatchingContext)!;
 
@@ -38,7 +39,7 @@ const TeamMatchingDetailContainer = () => {
 
   return (
     <div className="w-full h-full flex flex-col justify-start gap-28">
-      {userType !== 'pm' && canApply && (
+      {userType !== 'pm' && canApply && userPart.has(projectData.appType.toUpperCase()) && (
         <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
           이 프로젝트 지원하기
         </RoundedSquareButton>

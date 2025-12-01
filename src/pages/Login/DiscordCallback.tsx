@@ -27,11 +27,9 @@ const DiscordCallback = () => {
           localStorage.setItem('accessToken', accessToken);
           useUserStore.getState().setauths(role);
           useUserStore.getState().setIsLoggedIn(true);
-          console.log(data.code);
           navigate('/');
         } else {
           localStorage.setItem('guestToken', data.result.tokenResponse.guestToken);
-          console.log(data.code);
           navigate('/signup');
         }
       } catch (err) {

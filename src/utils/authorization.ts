@@ -1,7 +1,13 @@
 import { Auth, AUTH } from '../constants/authName';
 
 export const teamMatchingAuthExtractor = (roles: string[]): string => {
-  const adminKeywords = [AUTH.PRESIDENT, AUTH.VICE_PRESIDENT, AUTH.PART_LEAD, AUTH.ACCOUNTANT];
+  const adminKeywords = [
+    AUTH.PRESIDENT,
+    AUTH.VICE_PRESIDENT,
+    AUTH.PART_LEAD,
+    AUTH.ACCOUNTANT,
+    AUTH.TUTOR,
+  ];
 
   const isAdmin = roles.some((role) => {
     const parts = role.split(' ');
@@ -19,4 +25,16 @@ export const teamMatchingAuthExtractor = (roles: string[]): string => {
   if (isPm) return 'pm';
 
   return 'general';
+};
+
+export const partExtractor = (roles: string[]): Set<string> => {
+  const partSet = new Set<string>();
+  roles
+    .filter((role) => role.length === 3)
+    .forEach((role) => {
+      const roleSplit = role.split(' ');
+      partSet.add(roleSplit[1].toUpperCase());
+    });
+
+  return partSet;
 };

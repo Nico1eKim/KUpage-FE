@@ -73,6 +73,7 @@ const ApplyState = () => {
                     applyData={applyData.result as ApplyStateResponse}
                     setViewType={setViewType}
                     setSelectedTeamId={setSelectedTeamId}
+                    responseCode={applyData.code}
                   />
                 )}
               </>

@@ -12,11 +12,12 @@ import { ApplyStateContext } from './ApplyStateContext';
 
 interface Props {
   applyData: ApplyStateResponse;
+  responseCode?: number;
   setViewType: Dispatch<SetStateAction<ApplyView>>;
   setSelectedTeamId: Dispatch<SetStateAction<number | null>>;
 }
 
-const ApplyStateCard = ({ applyData, setViewType, setSelectedTeamId }: Props) => {
+const ApplyStateCard = ({ applyData, responseCode, setViewType, setSelectedTeamId }: Props) => {
   const { userType } = useContext(ApplyStateContext)!;
 
   const clickHandler = () => {
@@ -55,7 +56,9 @@ const ApplyStateCard = ({ applyData, setViewType, setSelectedTeamId }: Props) =>
       onClick={clickHandler}
     >
       <ApplyStateCardInfo applyData={applyData} />
-      {userType !== 'general' && <ApplyStateCardCounts mapData={mapData} />}
+      {(userType !== 'general' || (userType === 'general' && responseCode === 6011)) && (
+        <ApplyStateCardCounts mapData={mapData} />
+      )}
     </div>
   );
 };
