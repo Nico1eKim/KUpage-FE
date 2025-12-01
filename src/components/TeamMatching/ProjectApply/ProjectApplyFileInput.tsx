@@ -1,7 +1,6 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { styles } from '../../../constants/IdeaRegister/ideaRegisterStyle.constants';
 import FolderIcon from '../../../assets/imgs/FolderIcon.svg?react';
-import { useMemo } from 'react';
 
 const ProjectApplyFileInput = () => {
   const {
@@ -26,35 +25,28 @@ const ProjectApplyFileInput = () => {
         render={({ field }) => {
           const { value, onBlur, ref, name: fieldName } = field;
 
-          const url = useMemo(() => {
-            if (value instanceof File) return URL.createObjectURL(value);
-            return null;
-          }, [value]);
-
           const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const file = e.target.files?.[0] ?? null;
             setValue(fieldName, file, { shouldValidate: true, shouldDirty: true });
+
+            // 같은 파일을 다시 선택해도 이벤트가 발생하도록 value 초기화 (선택 사항)
+            e.target.value = '';
           };
 
-          if (value && url) {
-            return (
-              <div className="w-full flex items-center justify-center rounded-[10px] bg-[#4f5e69] h-[106px]">
-                <label className="cursor-pointer flex flex-col items-center justify-center">
-                  <div className="flex flex-col items-center justify-center">
-                    <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
-                    <div className="mt-4 text-[#2f383f] text-[15px] text-600">{value?.name}</div>
-                  </div>
-                </label>
-              </div>
-            );
-          }
-
           return (
-            <div className="w-full flex flex-center rounded-[10px] bg-[#4f5e69] h-[106px]">
-              <label className="cursor-pointer flex flex-col flex-center">
-                <div className="flex flex-col flex-center">
+            <div className="w-full h-[106px] rounded-[10px] bg-[#4f5e69] overflow-hidden">
+              <label className="w-full h-full cursor-pointer flex flex-col items-center justify-center hover:opacity-90 transition-opacity">
+                <div className="flex flex-col items-center justify-center px-4">
                   <FolderIcon className="text-darkblue w-[39px] h-[32px]" />
+
+                  {value && (
+                    <div className="mt-4 text-[#2f383f] text-[15px] text-600 truncate max-w-full text-center">
+                      {value.name}
+                    </div>
+                  )}
                 </div>
+
+                {/* 재클릭 시 수정 가능 */}
                 <input
                   type="file"
                   name={fieldName}
