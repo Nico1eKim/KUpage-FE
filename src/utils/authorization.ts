@@ -29,12 +29,23 @@ export const teamMatchingAuthExtractor = (roles: string[]): string => {
 
 export const partExtractor = (roles: string[]): Set<string> => {
   const partSet = new Set<string>();
-  roles
-    .filter((role) => role.length === 3)
-    .forEach((role) => {
-      const roleSplit = role.split(' ');
-      partSet.add(roleSplit[1].toUpperCase());
-    });
+
+  const isWeb = roles.some((role) => {
+    const roleSplit = role.split(' ');
+    return roleSplit.includes('Web');
+  });
+
+  const isNative = roles.some((role) => {
+    const roleSplit = role.split(' ');
+    return roleSplit.includes('Android');
+  });
+
+  if (isWeb) {
+    partSet.add('Web_App');
+  }
+  if (isNative) {
+    partSet.add('Native_App');
+  }
 
   return partSet;
 };

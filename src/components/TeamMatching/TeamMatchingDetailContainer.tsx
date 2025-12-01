@@ -26,11 +26,6 @@ const TeamMatchingDetailContainer = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('up', userPart);
-    console.log('projectData:', projectData?.appType.toUpperCase());
-  }, [projectData, userPart]);
-
   if (query.isLoading) {
     return (
       <div className="w-full min-h-screen flex-center">
@@ -45,11 +40,15 @@ const TeamMatchingDetailContainer = () => {
 
   return (
     <div className="w-full h-full flex flex-col justify-start gap-28">
-      {userType !== 'pm' && canApply && userPart.has(projectData.appType.toUpperCase()) && (
-        <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
-          이 프로젝트 지원하기
-        </RoundedSquareButton>
-      )}
+      {((userType === 'general' && userPart.has(projectData.appType)) || userType === 'admin') &&
+        canApply && (
+          <RoundedSquareButton
+            className={'w-[257px] h-[71px] !px-24'}
+            onClick={applyBtnClickHandler}
+          >
+            이 프로젝트 지원하기
+          </RoundedSquareButton>
+        )}
 
       <section className="w-full flex flex-col items-start gap-12">
         <div className="font-600 text-[32px]">{projectData.serviceName}</div>
