@@ -35,15 +35,18 @@ const ApplyStateDetailContainer = ({ applicantData }: Props) => {
           {applicantData.topicSummary}
         </div>
       </div>
-      {/*  */}
       <div className="w-full px-56 py-48 flex flex-col gap-76">
         {applicantPart.map((part, idx) => {
+          const currentPartApplicants = applicantData.applicantMap.applicants[part];
+          const hasApplicants = currentPartApplicants && currentPartApplicants.length > 0;
+
           return (
             <div key={idx} className="flex flex-col gap-16">
               <div className="text-48 font-600 text-left">{part}</div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-24">
-                {applicantData.applicantMap.applicants[part]?.map((applicant) => {
-                  return (
+
+              {hasApplicants ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-24">
+                  {currentPartApplicants.map((applicant) => (
                     <ApplicantCard
                       key={applicant.memberId}
                       applicant={applicant}
@@ -53,9 +56,11 @@ const ApplyStateDetailContainer = ({ applicantData }: Props) => {
                         setIsModalOpen(true);
                       }}
                     />
-                  );
-                })}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="w-full text-start text-32 text-white">지원자가 없습니다.</div>
+              )}
             </div>
           );
         })}
