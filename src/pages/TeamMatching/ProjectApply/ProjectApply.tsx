@@ -9,6 +9,7 @@ import {
 import { useLocation } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { TeamInfo } from '../../../types/teamMatchingApiTypes';
+import { notification } from '../../../constants/ProjectApply/notification.constants';
 
 interface LocationState {
   teamData?: TeamInfo;
@@ -41,6 +42,12 @@ const ProjectApply = () => {
     <FormProvider {...methods}>
       <form noValidate className="min-h-screen bg-gradient">
         <ProjectApplyHeader teamId={teamData.teamId} />
+
+        <div className="px-48 pb-48 pt-16">
+          <pre className="whitespace-pre-wrap font-sans text-24 leading-[35px] text-left">
+            {notification}
+          </pre>
+        </div>
         <ProjectApplyBody teamData={teamData} />
       </form>
     </FormProvider>

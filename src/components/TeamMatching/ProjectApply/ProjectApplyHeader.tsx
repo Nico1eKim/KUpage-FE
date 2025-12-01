@@ -1,6 +1,5 @@
 // prettier-ignore
 import { useFormContext } from 'react-hook-form';
-import { notification } from '../../../constants/ProjectApply/notification.constants';
 import RoundedSquareButton from '../../commons/RoundedSquareButton';
 import { ProjectApplySchema } from './schema/projectApplySchema';
 import { useNavigate } from 'react-router-dom';
@@ -32,16 +31,11 @@ const ProjectApplyHeader = ({ teamId }: { teamId: number }) => {
   );
 
   return (
-    <div className="flex flex-col gap-36 p-48">
-      <div className="flex flex-row justify-between items-center">
-        <h1 className="text-64 font-700">Completion of application</h1>
-        <RoundedSquareButton disabled={isSubmitting} onClick={onSubmit}>
-          최종 제출하기
-        </RoundedSquareButton>
-      </div>
-      <pre className="whitespace-pre-wrap font-sans text-24 leading-[35px] text-left">
-        {notification}
-      </pre>
+    <div className="sticky top-0 z-popup flex justify-between items-center w-full pt-80 pb-32 px-48 backdrop-blur-md">
+      <h1 className="text-64 font-700">Completion of application</h1>
+      <RoundedSquareButton disabled={isSubmitting} onClick={onSubmit}>
+        최종 제출하기
+      </RoundedSquareButton>
     </div>
   );
 };

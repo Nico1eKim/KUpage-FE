@@ -92,7 +92,7 @@ const UploadPortfolio = () => {
     <div className="relative">
       <div className="min-h-screen w-full pb-552 bg-gradient">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <section className="sticky top-0 z-popup flex justify-between items-center w-full px-48 pt-100 pb-32 bg-darkblue">
+          <section className="sticky top-0 z-popup flex justify-between items-center w-full px-48 pt-100 pb-32 backdrop-blur-md">
             <h1 className="text-64 font-700 text-white">Portfolio</h1>
             <TextButton text="완료하기" isActive={isValid} px="px-48" py="py-20" />
           </section>
