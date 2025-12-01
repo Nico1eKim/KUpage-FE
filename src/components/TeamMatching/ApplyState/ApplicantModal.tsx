@@ -40,7 +40,7 @@ const ApplicantModal = ({ onClose, applicantData }: Props) => {
 
         <div className="w-full flex flex-col items-start gap-24">
           <h3 className="text-24 font-600">지원 동기</h3>
-          <div className="w-full px-24 py-20 border-border border-2 bg-gray rounded-10 text-left">
+          <div className="w-full px-24 py-20 border-border border-2 bg-gray rounded-10 text-left text-24 font-500 leading-[35px]">
             {applicantData.applicantDetail.motivation}
           </div>
         </div>
