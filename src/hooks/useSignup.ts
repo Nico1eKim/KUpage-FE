@@ -4,6 +4,7 @@ import useUserStore from './useUserStore';
 const useSignup = () => {
   const { api } = useApi();
   const setIsLoggedIn = useUserStore((state) => state.setIsLoggedIn);
+  const setAuths = useUserStore((state) => state.setauths);
 
   const signup = async (form: {
     name: string;
@@ -17,6 +18,7 @@ const useSignup = () => {
     birth: string;
   }) => {
     const guestToken = localStorage.getItem('guestToken');
+
     if (!guestToken) throw new Error('게스트 토큰이 없습니다.');
 
     const payload = {
@@ -38,10 +40,21 @@ const useSignup = () => {
       skipAuth: true,
     });
 
-    const { accessToken, refreshToken } = response.data.result;
+    const result = response.data.result;
+    const { accessToken, refreshToken } = result.tokenResponse;
+
+    if (!accessToken) {
+      console.warn('서버가 accessToken을 주지 않았습니다!', response.data.result);
+    }
 
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('refreshToken', refreshToken);
+
+    localStorage.removeItem('guestToken');
+
+    if (result.role) {
+      setAuths(result.role);
+    }
 
     setIsLoggedIn(true);
 
