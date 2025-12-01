@@ -18,7 +18,7 @@ const TeamMatching = () => {
 
   const teams = query.data?.result?.teams ?? [];
   const selectedTeamData = teams.find((data) => data?.teamId === selectedTeamId);
-  const isApply = query.data?.result?.canApply;
+  const canApply = query.data?.result?.canApply;
 
   if (query.isError) {
     const status = (query.error as any).response?.status;
@@ -31,7 +31,7 @@ const TeamMatching = () => {
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-gray">
-      <TeamMatchingContext.Provider value={{ query, selectedTeamId, selectedTeamData, isApply }}>
+      <TeamMatchingContext.Provider value={{ query, selectedTeamId, selectedTeamData, canApply }}>
         {query.data && (
           <>
             <TeamMatchingHeader />

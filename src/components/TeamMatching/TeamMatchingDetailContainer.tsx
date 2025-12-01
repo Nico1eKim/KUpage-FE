@@ -12,7 +12,7 @@ const TeamMatchingDetailContainer = () => {
   const auths = useUserStore((state) => state.auths);
   const userType = teamMatchingAuthExtractor(auths);
   const navigate = useNavigate();
-  const { query, selectedTeamData: projectData, isApply } = useContext(TeamMatchingContext)!;
+  const { query, selectedTeamData: projectData, canApply } = useContext(TeamMatchingContext)!;
 
   const applyBtnClickHandler = () => {
     if (projectData) {
@@ -38,7 +38,7 @@ const TeamMatchingDetailContainer = () => {
 
   return (
     <div className="w-full h-full flex flex-col justify-start gap-28">
-      {userType !== 'pm' && !isApply && (
+      {userType !== 'pm' && canApply && (
         <RoundedSquareButton className={'w-[257px] h-[71px] !px-24'} onClick={applyBtnClickHandler}>
           이 프로젝트 지원하기
         </RoundedSquareButton>
