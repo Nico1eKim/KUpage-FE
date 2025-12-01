@@ -2,7 +2,7 @@ import RoundedSquareButton from '../commons/RoundedSquareButton';
 import RightUpArrow from '../../assets/imgs/RightUpArrow.svg';
 import TextBadge from '../commons/TextBadge';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { TeamMatchingContext } from './TeamMatchingContext';
 import { Loader2 } from 'lucide-react';
 import useUserStore from '../../hooks/useUserStore';
@@ -12,6 +12,7 @@ const TeamMatchingDetailContainer = () => {
   const auths = useUserStore((state) => state.auths);
   const userType = teamMatchingAuthExtractor(auths);
   const userPart = partExtractor(auths);
+
   const navigate = useNavigate();
   const { query, selectedTeamData: projectData, canApply } = useContext(TeamMatchingContext)!;
 
@@ -24,6 +25,11 @@ const TeamMatchingDetailContainer = () => {
       });
     }
   };
+
+  useEffect(() => {
+    console.log('up', userPart);
+    console.log('projectData:', projectData?.appType.toUpperCase());
+  }, [projectData, userPart]);
 
   if (query.isLoading) {
     return (
