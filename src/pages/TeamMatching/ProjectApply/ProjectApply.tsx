@@ -27,7 +27,7 @@ const ProjectApply = () => {
       appliedPart: undefined,
       portfolioUrl: undefined,
     },
-    mode: 'onSubmit',
+    mode: 'onChange',
     shouldFocusError: false,
   });
 
