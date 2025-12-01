@@ -14,7 +14,7 @@ const TeamCard = ({ data, selectedTeamId, ...rest }: Props) => {
   return (
     <div
       className={clsx(
-        'group w-full flex flex-col p-[29px] items-start justify-between text-left rounded-8 border-[2px] border-border cursor-pointer bg-gray hover:bg-main hover:border-main transition-all duration-200',
+        'group w-full flex flex-col gap-28 p-[29px] items-start justify-between text-left rounded-8 border-[2px] border-border cursor-pointer bg-gray hover:bg-main hover:border-main transition-all duration-200',
         isSelected && 'bg-main border-main'
       )}
       {...rest}
@@ -41,7 +41,7 @@ const TeamCard = ({ data, selectedTeamId, ...rest }: Props) => {
       <div className="w-full flex flex-row justify-between">
         <div
           className={clsx(
-            'flex items-center justify-center group-hover:text-darkblue',
+            'flex items-center justify-center group-hover:text-darkblue text-24 font-500',
             isSelected && 'text-darkblue'
           )}
         >
