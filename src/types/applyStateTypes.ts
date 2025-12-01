@@ -23,8 +23,7 @@ export type ApplicantPart = (typeof applicantPart)[number];
 
 export interface ApplicantDetail {
   portfolioUrl: string;
-  additionalAnswer1: string;
-  additionalAnswer2: string;
+  motivation: string;
 }
 
 export interface Applicant {
