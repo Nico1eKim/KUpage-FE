@@ -52,7 +52,7 @@ const SignupStepThree = ({ form, updateForm }: SignupStepThreeProps) => {
           onChange={(v) => updateForm('phone', v)}
           placeholder="010-1234-5678"
           isError={form.phone !== '' && !isValidPhone(form.phone)}
-          errorText="* 휴대폰 번호는 010-1234-5678 형식으로 입력해주세요.)"
+          errorText="* 휴대폰 번호는 010-1234-5678 형식으로 입력해주세요."
         />
       </div>
 
