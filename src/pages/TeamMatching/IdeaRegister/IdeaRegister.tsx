@@ -27,7 +27,7 @@ const IdeaRegister = () => {
     <FormProvider {...methods}>
       <form
         noValidate
-        className="w-full min-h-screen flex flex-col justify-start px-48 pt-48 pb-180 bg-darkblue"
+        className="w-full min-h-screen flex flex-col justify-start pt-48 pb-180 bg-darkblue"
       >
         <IdeaRegisterHeader />
         <IdeaRegisterBody />

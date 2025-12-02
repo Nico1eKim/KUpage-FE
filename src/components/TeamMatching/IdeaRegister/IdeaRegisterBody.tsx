@@ -12,7 +12,7 @@ const IdeaRegisterBody = () => {
   } = useFormContext();
 
   return (
-    <div className="w-full flex flex-col gap-[130px]">
+    <div className="w-full flex flex-col gap-[130px] px-48">
       <div className="w-full flex flex-col gap-[10px]">
         <div className={styles.text}>
           서비스명을 입력해주세요. <span className="text-[#d5da40]">*</span>
