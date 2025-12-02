@@ -45,7 +45,7 @@ const ProjectApplyHeader = ({ teamId }: { teamId: number }) => {
       <RoundedSquareButton
         disabled={isSubmitting}
         onClick={handleSubmit(onSubmit, onError)}
-        className={`transition-colors duration-200 ${isValid ? 'bg-main border-main text-[#18242D]' : ''}`}
+        className={`transition-colors duration-200 ${isValid ? 'bg-main border-main text-[#1A272F]' : ''}`}
       >
         최종 제출하기
       </RoundedSquareButton>
