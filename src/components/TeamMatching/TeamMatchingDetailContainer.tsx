@@ -7,6 +7,7 @@ import { TeamMatchingContext } from './TeamMatchingContext';
 import { Loader2 } from 'lucide-react';
 import useUserStore from '../../hooks/useUserStore';
 import { partExtractor, teamMatchingAuthExtractor } from '../../utils/authorization';
+import { getAppTypeDisplay } from '../../utils/appType';
 
 const TeamMatchingDetailContainer = () => {
   const auths = useUserStore((state) => state.auths);
@@ -53,7 +54,7 @@ const TeamMatchingDetailContainer = () => {
       <section className="w-full flex flex-col items-start gap-12">
         <div className="font-600 text-[32px]">{projectData.serviceName}</div>
         <div className="font-700 text-[24px]">{projectData.ownerName}</div>
-        <TextBadge text={projectData.appType} />
+        <TextBadge text={getAppTypeDisplay(projectData.appType)} />
         <div className="w-full whitespace-pre-line border-[2px] border-[gray] min-h-[20rem] rounded-[10px] px-20 py-24 text-start text-24 font-500 leading-[35px]">
           {projectData.topicSummary}
         </div>

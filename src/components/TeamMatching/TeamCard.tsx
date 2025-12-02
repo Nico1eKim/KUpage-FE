@@ -2,6 +2,7 @@ import { HTMLAttributes } from 'react';
 import { TeamInfo } from '../../types/teamMatchingApiTypes';
 import TextBadge from '../commons/TextBadge';
 import clsx from 'clsx';
+import { getAppTypeDisplay } from '../../utils/appType';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   data: TeamInfo;
@@ -48,7 +49,7 @@ const TeamCard = ({ data, selectedTeamId, ...rest }: Props) => {
           {data.ownerName}
         </div>
         <TextBadge
-          text={data.appType}
+          text={getAppTypeDisplay(data.appType)}
           className={clsx(
             'group-hover:text-darkblue group-hover:border-darkblue',
             isSelected && 'text-darkblue border-darkblue'

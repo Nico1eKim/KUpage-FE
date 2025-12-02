@@ -6,6 +6,7 @@ import {
 } from '../../../types/applyStateTypes';
 import ApplicantCard from './ApplicantCard';
 import ApplicantModal from './ApplicantModal';
+import { getAppTypeDisplay } from '../../../utils/appType';
 
 interface Props {
   applicantData: ApplicantStateResponse;
@@ -29,7 +30,7 @@ const ApplyStateDetailContainer = ({ applicantData }: Props) => {
         <h2 className="text-32 font-600">{applicantData.serviceName}</h2>
         <h3 className="text-24 font-700">{applicantData.nameAndPart}</h3>
         <div className="flex items-center justify-center text-20 font-700 h-48 px-[23px] rounded-24 border-2 border-border">
-          {applicantData.appType}
+          {getAppTypeDisplay(applicantData.appType)}
         </div>
         <div className="w-full border-2 border-border rounded-10 px-24 py-28 text-start text-24 font-500 leading-[35px]">
           {applicantData.topicSummary}

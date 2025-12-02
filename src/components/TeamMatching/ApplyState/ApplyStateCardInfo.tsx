@@ -3,6 +3,7 @@ import { ApplyStateResponse } from '../../../types/applyStateTypes';
 import TextBadge from '../../commons/TextBadge';
 import { ApplyStateContext } from './ApplyStateContext';
 import { useContext } from 'react';
+import { getAppTypeDisplay } from '../../../utils/appType';
 
 interface Props {
   applyData: ApplyStateResponse;
@@ -23,7 +24,10 @@ const ApplyStateCardInfo = ({ applyData }: Props) => {
       <h3 className="text-24 font-700">{applyData.topicSummary}</h3>
       <div className="flex flex-row items-center justify-between">
         <span className="text-24 font-500">{applyData.nameAndPart}</span>
-        <TextBadge text={applyData.appType as string} className="group-hover:border-darkblue" />
+        <TextBadge
+          text={getAppTypeDisplay(applyData.appType as string)}
+          className="group-hover:border-darkblue"
+        />
       </div>
     </div>
   );

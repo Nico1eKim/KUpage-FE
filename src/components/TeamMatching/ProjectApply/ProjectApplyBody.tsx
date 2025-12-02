@@ -5,6 +5,7 @@ import ProjectApplyFileInput from './ProjectApplyFileInput';
 import ProjectApplyTextInput from './ProjectApplyTextInput';
 import { TeamInfo } from '../../../types/teamMatchingApiTypes';
 import TextBadge from '../../commons/TextBadge';
+import { getAppTypeDisplay } from '../../../utils/appType';
 
 interface Props {
   teamData: TeamInfo;
@@ -16,7 +17,7 @@ const ProjectApplyBody = ({ teamData }: Props) => {
       <div className="w-full h-auto flex flex-col items-start gap-24 px-56 py-36 bg-gray">
         <h2 className="text-32 font-600">{teamData.serviceName}</h2>
         <h3 className="text-24 font-700">{teamData.ownerName}</h3>
-        <TextBadge text={teamData.appType} />
+        <TextBadge text={getAppTypeDisplay(teamData.appType)} />
         <div className="w-full border-2 border-border rounded-10 px-24 py-28 text-start text-24 font-500 leading-[35px]">
           {teamData.topicSummary}
         </div>
