@@ -6,11 +6,7 @@ interface SignupStepOneProps {
 }
 
 const SignupStepOne = ({ name, onChange }: SignupStepOneProps) => {
-  return (
-    <div className="ml-80 mr-40">
-      <SignupInputBox label="이름" value={name} onChange={onChange} placeholder="ex) 홍길동" />
-    </div>
-  );
+  return <SignupInputBox label="이름" value={name} onChange={onChange} placeholder="ex) 홍길동" />;
 };
 
 export default SignupStepOne;

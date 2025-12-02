@@ -82,21 +82,23 @@ const Signup = () => {
   }, [form.college]);
 
   return (
-    <div className="flex flex-col relative items-center bg-gradient min-h-screen w-screen p-120">
-      <div className="w-[70%]">
+    <div className="flex flex-col relative items-center bg-gradient min-h-screen w-screen py-88 px-200">
+      <div className="w-full">
         <SignupHeader nowStep={step} title={getTitleByStep(step)} onClick={prevStep} />
       </div>
-      <div className="w-[70%] flex flex-col gap-24 mt-20 ">
-        {step === 1 && <SignupStepOne name={form.name} onChange={(v) => updateForm('name', v)} />}
-        {step === 2 && <SignupStepTwo form={form} updateForm={updateForm} />}
-        {step === 3 && <SignupStepThree form={form} updateForm={updateForm} />}
-      </div>
-      <div className="w-[70%] flex justify-end right-[23%] absolute bottom-[10%]">
-        <TextButton
-          text={step == 3 ? '완료하기' : '다음으로'}
-          onClick={isButtonActive() ? nextStep : undefined}
-          isActive={isButtonActive()}
-        />
+      <div className="w-[80%]">
+        <div className="w-full flex flex-col gap-24 mt-20 ">
+          {step === 1 && <SignupStepOne name={form.name} onChange={(v) => updateForm('name', v)} />}
+          {step === 2 && <SignupStepTwo form={form} updateForm={updateForm} />}
+          {step === 3 && <SignupStepThree form={form} updateForm={updateForm} />}
+        </div>
+        <div className="w-full flex justify-end pt-200">
+          <TextButton
+            text={step == 3 ? '완료하기' : '다음으로'}
+            onClick={isButtonActive() ? nextStep : undefined}
+            isActive={isButtonActive()}
+          />
+        </div>
       </div>
     </div>
   );
