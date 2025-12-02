@@ -34,9 +34,16 @@ const LoginButton = () => {
 
   const { isLoggedIn, logout, auths } = useUserStore();
 
+  const token = localStorage.getItem('accessToken');
+  const isValidLogin = isLoggedIn && !!token;
+
   const role = getRole(auths);
 
-  console.log(role);
+  useEffect(() => {
+    if (!token && isLoggedIn) {
+      logout();
+    }
+  }, [isLoggedIn, logout, token]);
 
   // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
@@ -69,7 +76,7 @@ const LoginButton = () => {
 
   return (
     <div className="relative z-floating" ref={dropdownRef}>
-      {isLoggedIn ? (
+      {isValidLogin ? (
         <>
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
